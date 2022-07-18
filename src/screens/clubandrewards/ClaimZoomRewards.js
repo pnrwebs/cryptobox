@@ -40,6 +40,7 @@ const ClaimZoomRewards = props => {
     claimData_resp,
     set_initialStateNull,
     dash_data,
+    user_data,
     get_ROIOnOff,
     on_off_status,
   } = props;
@@ -48,9 +49,7 @@ const ClaimZoomRewards = props => {
 
   const [zoomUsername, setZoomUsername] = useState('');
   const [sixDigitZoomFlashCode, setSixDigitZoomFlashCode] = useState('');
-  const [mdtxWalletAddress, setMdtxWalletAddress] = useState(
-    '0xBa27944738BcE91ADCe1449055e867Ab52DCaBec',
-  );
+  const [mdtxWalletAddress, setMdtxWalletAddress] = useState('');
   const [walletPassword, setWalletPassword] = useState('');
 
   const [zoomUsernameError, setZoomUsernameError] = useState('');
@@ -92,8 +91,11 @@ const ClaimZoomRewards = props => {
   useEffect(() => {
     if (status_success === true) {
       set_initialStateNull();
-      props.navigation.navigate('AddFundStatus', {
-        showData: claimData_resp,
+      setZoomUsername('');
+      setSixDigitZoomFlashCode('');
+      setWalletPassword('');
+      props.navigation.navigate('StatusScreen', {
+        msg: claimData_resp,
       });
     } else if (status_success === false) {
       set_initialStateNull();
@@ -103,6 +105,7 @@ const ClaimZoomRewards = props => {
 
   useEffect(() => {
     get_ROIOnOff();
+    setMdtxWalletAddress(user_data?.mdt_wallet_address);
   }, []);
   return loading ? (
     <LoaderIndicator />
@@ -266,6 +269,7 @@ const mapStateToProps = state => {
     status_message: state.rewards.message,
     claimData_resp: state.rewards.claimRewardResp,
     on_off_status: state.rewards.open_status,
+    user_data: state.auth.user,
   };
 };
 
