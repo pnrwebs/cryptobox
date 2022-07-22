@@ -13,6 +13,7 @@ import * as knowledgecenter from './KnowledgeCenter';
 import * as forgotpassword from './ForgotPassword';
 
 function* rootSaga() {
+  yield takeLatest(actions.GET_APP_VERSION, auth.getAppVersionSaga);
   yield takeLatest(actions.INIT_LOGIN, auth.authenticate);
   //   yield takeLatest(actions.INIT_AUTH_STATUS, auth.checkAuthStatus);
   yield takeLatest(actions.INIT_LOGOUT, auth.logout);

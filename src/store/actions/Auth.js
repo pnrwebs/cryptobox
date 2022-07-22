@@ -1,5 +1,16 @@
 import * as actionTypes from './ActionTypes';
 
+export const getAppVersion = () => ({
+  type: actionTypes.GET_APP_VERSION,
+});
+
+export const setAppVersion = payload => {
+  return {
+    type: actionTypes.SET_APP_VERSION,
+    payload,
+  };
+};
+
 export const initLogin = (userid, password) => ({
   type: actionTypes.INIT_LOGIN,
   userid,

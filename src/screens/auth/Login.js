@@ -15,16 +15,23 @@ import {
   TextInput,
   ImageBackground,
   Pressable,
+  Platform,
+  Linking,
 } from 'react-native';
 import {connect} from 'react-redux';
-import {initLogin, setInitialStateNullAuth} from '../../store/actions/Auth';
+import {
+  initLogin,
+  setInitialStateNullAuth,
+  getAppVersion,
+} from '../../store/actions/Auth';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import LoaderIndicator from '../../components/LoaderIndicator';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
+// import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import DeviceInfo from 'react-native-device-info';
+import Modal from 'react-native-modal';
 import Colors from '../../config/Colors';
 import Styles from '../../css/Styles';
 import Toast from 'react-native-simple-toast';
@@ -32,15 +39,12 @@ import Toast from 'react-native-simple-toast';
 const Login = props => {
   const {
     loading,
-    checkAuth,
-    user,
-    token,
-    errorMsg,
-    status_message,
+    get_AppVersion,
     status_success,
     authenticate,
     success,
     set_initialStateNull,
+    appVersion,
   } = props;
 
   const [userid, setUserId] = useState('');
@@ -49,12 +53,17 @@ const Login = props => {
   const [useridError, setUseridError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [showVersionUpdate, setShowVersionUpdate] = useState(false);
+
+  const toggleModelUpdateCart = title => {
+    setUpdateCart(!isUpdateCart);
+  };
 
   const handleLogin = () => {
     if (userid != '' && password != '') {
       authenticate(userid, password);
     } else {
-      userid == '' ? setUseridError('Please enter a valid employee id') : null;
+      userid == '' ? setUseridError('Please enter username') : null;
       password == '' ? setPasswordError('Please enter password') : null;
     }
   };
@@ -80,6 +89,27 @@ const Login = props => {
     setPasswordError('');
     setPassword(value);
   };
+
+  useEffect(() => {
+    get_AppVersion();
+  }, []);
+
+  useEffect(() => {
+    let local_app_version = DeviceInfo.getVersion();
+    let local_build_version = DeviceInfo.getBuildNumber();
+
+    if (appVersion !== null) {
+      if (Platform.OS === 'android') {
+        let server_app_version = appVersion.android_version;
+
+        if (local_app_version < server_app_version) {
+          setShowVersionUpdate(true);
+        }
+      } else {
+        let server_app_version = appVersion.ios_version;
+      }
+    }
+  }, [appVersion]);
 
   return loading ? (
     <LoaderIndicator />
@@ -175,6 +205,91 @@ const Login = props => {
             </Pressable>
           </View>
         </View>
+        <Modal
+          isVisible={showVersionUpdate}
+          animationIn={'fadeIn'}
+          animationOut={'fadeOut'}
+          animationInTiming={300}
+          animationOutTiming={300}>
+          <View
+            style={{
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <View
+              style={{
+                marginHorizontal: 20,
+                backgroundColor: Colors.containerBg1,
+                borderWidth: 1,
+                borderColor: Colors.textInputBorder,
+                borderRadius: 5,
+                padding: 15,
+                // alignItems: 'flex-start',
+                shadowColor: '#fff',
+                shadowOffset: {
+                  width: 0,
+                  height: 2,
+                },
+                shadowOpacity: 0.25,
+                shadowRadius: 4,
+                elevation: 5,
+                width: wp('90%'),
+                height: hp('30%'),
+                justifyContent: 'center',
+              }}>
+              <Text
+                style={{
+                  fontFamily: 'Poppins-Medium',
+                  fontSize: 16,
+                  color: Colors.inputTextLabel,
+                  marginBottom: 5,
+                  fontSize: 20,
+                  textAlign: 'center',
+                  color: 'red',
+                }}>
+                Alert!
+              </Text>
+              <Text
+                style={{
+                  fontFamily: 'Poppins-Medium',
+                  fontSize: 16,
+                  color: Colors.inputTextLabel,
+                  marginBottom: 5,
+                  fontSize: 18,
+                  textAlign: 'center',
+                }}>
+                Cryptobox has a new update, please visit app store and update
+                your app.
+              </Text>
+
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '100%',
+                  marginTop: 20,
+                }}>
+                <Pressable
+                  onPress={() =>
+                    Linking.openURL('market://details?id=com.cryptobox').catch(
+                      err => console.error('Error', err),
+                    )
+                  }
+                  style={{
+                    ...Styles.ctaButton,
+                    paddingVertical: 8,
+                    paddingHorizontal: 30,
+                    alignSelf: 'center',
+                    marginLeft: 20,
+                  }}>
+                  <Text style={Styles.ctaButtonText}>Update</Text>
+                </Pressable>
+              </View>
+            </View>
+          </View>
+        </Modal>
       </ImageBackground>
     </View>
   );
@@ -199,19 +314,21 @@ const styles = StyleSheet.create({
 });
 
 const mapDispatchToProps = dispatch => ({
+  get_AppVersion: () => dispatch(getAppVersion()),
   set_initialStateNull: () => dispatch(setInitialStateNullAuth()),
   authenticate: (userid, password) => dispatch(initLogin(userid, password)),
   // getDetails: () => dispatch(getUserDetail()),
 });
 
 const mapStateToProps = state => {
-  console.log('here is login state', state);
+  console.log('here is login state', state.auth);
   return {
     status: state.auth.status,
     user: state.auth.user,
     loading: state.auth.loading,
     status_success: state.auth.success,
     status_message: state.auth.error,
+    appVersion: state.auth.app_version,
   };
 };
 

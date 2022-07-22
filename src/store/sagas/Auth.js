@@ -224,3 +224,17 @@ export function* updateProfile(action) {
     yield put(actions.submitUpdateProfileStatus(error.message));
   }
 }
+
+export function* getAppVersionSaga() {
+  try {
+    const data = yield API.get(
+      `?action=Getapplastupdatedversion&key=${API_KEY}`,
+    );
+    console.log('saga  Getapplastupdatedversion', data);
+    if (data.status === 200) {
+      yield put(actions.setAppVersion(data.data));
+    }
+  } catch (error) {
+    yield put(actions.setAppVersion(error.message));
+  }
+}
