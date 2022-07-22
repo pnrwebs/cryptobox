@@ -219,7 +219,7 @@ const POSCard = props => {
                 </View>
                 <View>
                   <Text style={Styles.inputBoxLabel}>
-                    Enter Walelt Password*
+                    Enter Wallet Password*
                   </Text>
                   <TextInput
                     style={Styles.inputBox}

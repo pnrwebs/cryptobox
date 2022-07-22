@@ -14,6 +14,7 @@ const initialState = {
   signupdata: null,
   message: null,
   countryList: [],
+  app_version: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -26,6 +27,19 @@ const reducer = (state = initialState, action) => {
         success: null,
         status: null,
       };
+    case actionTypes.GET_APP_VERSION:
+      return {
+        ...state,
+        loading: true,
+        status: null,
+      };
+    case actionTypes.SET_APP_VERSION:
+      return updateState(state, {
+        status: payload.status,
+        loading: false,
+        app_version: payload.data,
+      });
+
     case actionTypes.INIT_LOGIN:
       return {
         ...state,

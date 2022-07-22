@@ -1,3 +1,6 @@
+export const GET_APP_VERSION = 'GET_APP_VERSION';
+export const SET_APP_VERSION = 'SET_APP_VERSION';
+
 export const INIT_LOGIN = 'INIT_LOGIN';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
