@@ -15,6 +15,7 @@ const initialState = {
   message: null,
   countryList: [],
   app_version: null,
+  sponsor_name: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -38,6 +39,20 @@ const reducer = (state = initialState, action) => {
         status: payload.status,
         loading: false,
         app_version: payload.data,
+      });
+    case actionTypes.GET_SPONSOR_NAME:
+      return {
+        ...state,
+        loading: true,
+        status: null,
+      };
+    case actionTypes.PUT_SPONSOR_NAME:
+      return updateState(state, {
+        status: payload.status,
+        loading: false,
+        success: payload.data.success,
+        message: payload.data.message,
+        sponsor_name: payload.data,
       });
 
     case actionTypes.INIT_LOGIN:

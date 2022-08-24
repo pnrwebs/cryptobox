@@ -195,6 +195,7 @@ const LevelwisePerformanceIncomeStep2 = props => {
               paddingVertical: 10,
             }}>
             <FlatList
+              contentContainerStyle={{paddingBottom: 40}}
               data={DATA}
               renderItem={renderItem}
               keyExtractor={item => item.id}

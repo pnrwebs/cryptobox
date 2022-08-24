@@ -47,8 +47,8 @@ const Login = props => {
     appVersion,
   } = props;
 
-  const [userid, setUserId] = useState('');
-  const [password, setPassword] = useState('');
+  const [userid, setUserId] = useState('Kamlesh');
+  const [password, setPassword] = useState('Abcd@123');
   const [auth, setAuth] = useState(false);
   const [useridError, setUseridError] = useState('');
   const [passwordError, setPasswordError] = useState('');

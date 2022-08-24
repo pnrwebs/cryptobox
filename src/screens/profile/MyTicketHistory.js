@@ -102,6 +102,7 @@ const MyTicketHistory = props => {
             }}>
             {my_tickets && my_tickets.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 40}}
                 data={my_tickets ? my_tickets : []}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

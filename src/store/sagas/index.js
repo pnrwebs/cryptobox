@@ -17,6 +17,7 @@ function* rootSaga() {
   yield takeLatest(actions.INIT_LOGIN, auth.authenticate);
   //   yield takeLatest(actions.INIT_AUTH_STATUS, auth.checkAuthStatus);
   yield takeLatest(actions.INIT_LOGOUT, auth.logout);
+  yield takeLatest(actions.GET_SPONSOR_NAME, auth.getSponsorNameSaga);
   yield takeLatest(actions.INIT_SIGNUP, auth.register);
   yield takeLatest(actions.CHANGE_PASSWORD, auth.changePassword);
   yield takeLatest(
@@ -171,5 +172,12 @@ function* rootSaga() {
     actions.GET_KNOWLEDGE_CENTER_LIST,
     knowledgecenter.knowledgeCenter,
   );
+
+  yield takeLatest(
+    actions.UPDATE_EMAIL_ADDRESS,
+    profile.updateEmailAddressSaga,
+  );
+  yield takeLatest(actions.VERIFY_EMAIL_OTP, profile.verifyEmailOtpSaga);
+  yield takeLatest(actions.SET_2FA_AUTH, profile.set2FAAuthSaga);
 }
 export default rootSaga;

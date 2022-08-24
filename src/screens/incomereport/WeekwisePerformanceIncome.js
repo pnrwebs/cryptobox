@@ -116,6 +116,7 @@ const WeekwisePerformanceIncome = props => {
             }}>
             {weekwise_per_income && weekwise_per_income.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 40}}
                 data={weekwise_per_income ? weekwise_per_income : []}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

@@ -172,6 +172,7 @@ const LevelwisePerformanceIncomeStep1 = props => {
             }}>
             {levelwise_per_income && levelwise_per_income.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 40}}
                 data={levelwise_per_income ? levelwise_per_income : []}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

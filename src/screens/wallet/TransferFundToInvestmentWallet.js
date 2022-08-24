@@ -103,7 +103,7 @@ const TransferFundToInvestmentWallet = props => {
                 }}>
                 Note:{' '}
               </Text>
-              Maximum withdrawal amount is {CUR_SYMB}30
+              Minimum withdrawal amount is {CUR_SYMB}30
             </Text>
             <Text
               style={{

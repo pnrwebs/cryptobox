@@ -107,6 +107,7 @@ const KnowledgeCenter = props => {
             }}>
             {knowledge_center_list && knowledge_center_list.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 40}}
                 data={knowledge_center_list ? knowledge_center_list : []}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

@@ -150,6 +150,7 @@ const TeamLeverage = props => {
             }}>
             {team_leverage && team_leverage.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 40}}
                 data={team_leverage ? team_leverage : []}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

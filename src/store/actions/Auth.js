@@ -11,6 +11,17 @@ export const setAppVersion = payload => {
   };
 };
 
+export const getSponsorName = sponsorid => ({
+  type: actionTypes.GET_SPONSOR_NAME,
+  sponsorid,
+});
+
+export const putSponsorName = payload => {
+  return {
+    type: actionTypes.PUT_SPONSOR_NAME,
+    payload,
+  };
+};
 export const initLogin = (userid, password) => ({
   type: actionTypes.INIT_LOGIN,
   userid,

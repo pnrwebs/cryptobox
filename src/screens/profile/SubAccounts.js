@@ -101,6 +101,7 @@ const SubAccounts = props => {
             }}>
             {sub_accounts && sub_accounts.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 40}}
                 data={sub_accounts ? sub_accounts : []}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

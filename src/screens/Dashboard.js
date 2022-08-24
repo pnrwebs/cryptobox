@@ -169,7 +169,7 @@ const Dashboard = props => {
                   ? dash_data.standard_group_balance_count
                   : ''}
               </Text>
-              <Text style={styles.text}>Standered Group</Text>
+              <Text style={styles.text}>Standard Group</Text>
             </Pressable>
           </View>
           <View

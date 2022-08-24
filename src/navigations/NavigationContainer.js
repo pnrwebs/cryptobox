@@ -55,6 +55,9 @@ import {
   MyTicketHistory,
   MyTicketDetails,
   ReferToFriends,
+  UpdateEmail,
+  UpdateEmailOtp,
+  TwoFASetting,
 } from '../screens/profile';
 import {KnowledgeCenter, KnowledgeDetails} from '../screens/knowledgecenter';
 import {
@@ -296,6 +299,48 @@ const HomeStackNav = props => {
         options={{
           headerShown: true,
           title: 'Invite Friends',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
+      <HomeStack.Screen
+        name="UpdateEmail"
+        component={UpdateEmail}
+        options={{
+          headerShown: true,
+          title: 'Update Email',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
+      <HomeStack.Screen
+        name="UpdateEmailOtp"
+        component={UpdateEmailOtp}
+        options={{
+          headerShown: true,
+          title: 'Enter OTP',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
+      <HomeStack.Screen
+        name="TwoFASetting"
+        component={TwoFASetting}
+        options={{
+          headerShown: true,
+          title: '2FA Setting',
           showIcon: true,
           headerStyle: styles.headers,
           headerTintColor: Colors.appHeaderTitleOther,

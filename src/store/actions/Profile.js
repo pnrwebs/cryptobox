@@ -99,3 +99,42 @@ export const submitChangeWalletPasswordStatus = payload => {
     payload,
   };
 };
+
+export const updateEmailAddress = (oldEmailId, newEmailId, walletPassword) => ({
+  type: actionTypes.UPDATE_EMAIL_ADDRESS,
+  oldEmailId,
+  newEmailId,
+  walletPassword,
+});
+
+export const updateEmailAddressStatus = payload => {
+  return {
+    type: actionTypes.UPDATE_EMAIL_ADDRESS_STATUS,
+    payload,
+  };
+};
+
+export const verifyEmailOtp = (oldEmailOtp, newEmailOtp) => ({
+  type: actionTypes.VERIFY_EMAIL_OTP,
+  oldEmailOtp,
+  newEmailOtp,
+});
+
+export const verifyEmailOtpStatus = payload => {
+  return {
+    type: actionTypes.VERIFY_EMAIL_OTP_STATUS,
+    payload,
+  };
+};
+
+export const set2FAAuth = checked => ({
+  type: actionTypes.SET_2FA_AUTH,
+  checked,
+});
+
+export const set2FAAuthStatus = payload => {
+  return {
+    type: actionTypes.SET_2FA_AUTH_STATUS,
+    payload,
+  };
+};

@@ -192,6 +192,7 @@ const WithdrawalHistory = props => {
             }}>
             {withdrawal_history && withdrawal_history.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 50}}
                 data={withdrawal_history ? withdrawal_history : []}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

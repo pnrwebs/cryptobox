@@ -5,6 +5,7 @@ import API from '../../utils/fetchClient';
 import * as actions from '../actions';
 import {API_KEY} from '../../config/Constants';
 import {investmentWalletBalanceSaga} from './Wallet';
+import {getUserDetails} from './Auth';
 
 export function* subAccounts() {
   let user_id = yield AsyncStorage.getItem('user_id');
@@ -149,5 +150,83 @@ export function* changeWalletPassword(action) {
   } catch (error) {
     console.log('submitPosRequestStatus', error.message);
     yield put(actions.submitChangeWalletPasswordStatus(error.message));
+  }
+}
+
+export function* updateEmailAddressSaga(action) {
+  const {oldEmailId, newEmailId, walletPassword} = action;
+  let user_id = yield AsyncStorage.getItem('user_id');
+  const body = {
+    member_user_id: user_id,
+    old_email: oldEmailId,
+    new_email: newEmailId,
+    password: walletPassword,
+    action: 'Updateemailbymemberid',
+    key: API_KEY,
+  };
+  console.log('updateEmailAddressSaga bodybody', body);
+  try {
+    const data = yield API.post('/', body);
+    console.log('updateEmailAddressSaga response data', data);
+    if (data.status === 200) {
+      yield put(actions.updateEmailAddressStatus(data));
+    } else {
+      console.log('updateEmailAddressSaga', body);
+      yield put(actions.updateEmailAddressStatus(data.status));
+    }
+  } catch (error) {
+    console.log('updateEmailAddressSaga', error.message);
+    yield put(actions.updateEmailAddressStatus(error.message));
+  }
+}
+
+export function* verifyEmailOtpSaga(action) {
+  const {oldEmailOtp, newEmailOtp} = action;
+  let user_id = yield AsyncStorage.getItem('user_id');
+  const body = {
+    member_user_id: user_id,
+    old_email_otp: oldEmailOtp,
+    new_email_otp: newEmailOtp,
+    action: 'Verifyotpupdateemailbymemberid',
+    key: API_KEY,
+  };
+  console.log('verifyEmailOtpSaga bodybody', body);
+  try {
+    const data = yield API.post('/', body);
+    console.log('verifyEmailOtpSaga response data', data);
+    if (data.status === 200) {
+      yield put(actions.verifyEmailOtpStatus(data));
+    } else {
+      console.log('verifyEmailOtpSaga', body);
+      yield put(actions.verifyEmailOtpStatus(data.status));
+    }
+  } catch (error) {
+    console.log('verifyEmailOtpSaga', error.message);
+    yield put(actions.verifyEmailOtpStatus(error.message));
+  }
+}
+export function* set2FAAuthSaga(action) {
+  const {checked} = action;
+  let user_id = yield AsyncStorage.getItem('user_id');
+  const body = {
+    member_user_id: user_id,
+    set_auth_type: checked,
+    action: 'Activateauthtype',
+    key: API_KEY,
+  };
+  console.log('set2FAAuthSaga bodybody', body);
+  try {
+    const data = yield API.post('/', body);
+    console.log('set2FAAuthSaga response data', data);
+    if (data.status === 200) {
+      yield getUserDetails();
+      yield put(actions.set2FAAuthStatus(data));
+    } else {
+      console.log('set2FAAuthSaga', body);
+      yield put(actions.set2FAAuthStatus(data.status));
+    }
+  } catch (error) {
+    console.log('set2FAAuthSaga', error.message);
+    yield put(actions.set2FAAuthStatus(error.message));
   }
 }

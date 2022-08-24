@@ -167,6 +167,7 @@ const LevelwisePerformanceIncome = props => {
             }}>
             {levels && levels.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 40}}
                 data={levels ? levels : []}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

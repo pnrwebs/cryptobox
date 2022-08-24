@@ -238,3 +238,19 @@ export function* getAppVersionSaga() {
     yield put(actions.setAppVersion(error.message));
   }
 }
+
+export function* getSponsorNameSaga(action) {
+  const {sponsorid} = action;
+
+  try {
+    const data = yield API.get(
+      `?action=Verifysponsorexists&key=${API_KEY}&member_sponsor_id=${sponsorid}`,
+    );
+    console.log('saga  Getuserdetailwithmemberid', data);
+    if (data.status === 200) {
+      yield put(actions.putSponsorName(data));
+    }
+  } catch (error) {
+    yield put(actions.putSponsorName(error.message));
+  }
+}

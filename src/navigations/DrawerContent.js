@@ -567,6 +567,22 @@ const DrawerContent = props => {
                   }}
                 />
                 <DrawerItem
+                  label="Update Email"
+                  labelStyle={styles.subMenuLabel}
+                  // style={{bottom: -10}}
+                  onPress={() => {
+                    props.navigation.navigate('UpdateEmail');
+                  }}
+                />
+                <DrawerItem
+                  label="2FA Setting"
+                  labelStyle={styles.subMenuLabel}
+                  // style={{bottom: -10}}
+                  onPress={() => {
+                    props.navigation.navigate('TwoFASetting');
+                  }}
+                />
+                <DrawerItem
                   label="Sub Accounts"
                   labelStyle={styles.subMenuLabel}
                   // style={{bottom: -10}}

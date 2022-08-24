@@ -6,3 +6,6 @@ export {default as SubAccounts} from './SubAccounts';
 export {default as MyTicketHistory} from './MyTicketHistory';
 export {default as MyTicketDetails} from './MyTicketDetails';
 export {default as ReferToFriends} from './ReferToFriends';
+export {default as UpdateEmail} from './UpdateEmail';
+export {default as UpdateEmailOtp} from './UpdateEmailOtp';
+export {default as TwoFASetting} from './TwoFASetting';
