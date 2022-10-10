@@ -11,6 +11,7 @@ import {
   Image,
   StyleSheet,
   Pressable,
+  Platform,
 } from 'react-native';
 import Animated from 'react-native-reanimated';
 
@@ -36,6 +37,8 @@ import {
   Register,
   RegistrationSuccessfull,
   ForgotPassword,
+  VerifyEmailOTP,
+  VerifyGoogleAuth,
 } from '../screens/auth';
 
 import {
@@ -44,6 +47,7 @@ import {
   WalletBalance,
   StatusScreen,
   LastWeekFastTrack,
+  CurrentWeekFastTrack,
 } from '../screens';
 
 import {
@@ -66,6 +70,7 @@ import {
   LifetimeRankingRewardDetails,
   ClaimZoomRewards,
   ZoomRewardList,
+  CryptoboxRewards,
 } from '../screens/clubandrewards';
 
 import {
@@ -439,6 +444,20 @@ const HomeStackNav = props => {
         options={{
           headerShown: true,
           title: 'Zoom Reward List',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
+      <HomeStack.Screen
+        name="CryptoboxRewards"
+        component={CryptoboxRewards}
+        options={{
+          headerShown: true,
+          title: 'Cryptobox Rewards',
           showIcon: true,
           headerStyle: styles.headers,
           headerTintColor: Colors.appHeaderTitleOther,
@@ -938,6 +957,20 @@ const HomeStackNav = props => {
           // headerRight: ({}) => <HeaderRight />,
         }}
       />
+      <HomeStack.Screen
+        name="CurrentWeekFastTrack"
+        component={CurrentWeekFastTrack}
+        options={{
+          headerShown: true,
+          title: 'Current Week Qualifier',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
     </HomeStack.Navigator>
   );
 };
@@ -950,9 +983,11 @@ const HomeDrawer = props => {
     <>
       <StatusBar barStyle="light-content" hidden={false} />
       <DashboardDrawer.Navigator
-        drawerType="front"
         overlayColor="transparent"
         drawerStatusBarAnimation="slide"
+        // screenOptions={{
+        //   drawerType: dimensions.width >= 768 ? 'permanent' : 'front',
+        // }}
         drawerContent={props => (
           <DrawerContent
             {...props}
@@ -962,9 +997,10 @@ const HomeDrawer = props => {
         screenOptions={{
           drawerStyle: {
             width: '80%',
-            marginTop: 56,
+            marginTop: Platform.OS === 'ios' ? 0 : 56,
             backgroundColor: Colors.drawerBackground,
           },
+          drawerType: 'front',
         }}>
         <DashboardDrawer.Screen
           name="Home"
@@ -992,6 +1028,20 @@ export default function AppNavigation() {
         <AuthStack.Screen
           name="Login"
           component={Login}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <AuthStack.Screen
+          name="VerifyEmailOTP"
+          component={VerifyEmailOTP}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <AuthStack.Screen
+          name="VerifyGoogleAuth"
+          component={VerifyGoogleAuth}
           options={{
             headerShown: false,
           }}
@@ -1036,7 +1086,7 @@ const styles = StyleSheet.create({
     // borderBottomColor: Colors.icons,
     // borderBottomLeftRadius: 15,
     // borderBottomRightRadius: 15,
-    height: 70,
+    height: Platform.OS === 'ios' ? 100 : 70,
     // borderBottomWidth: 1,
     // shadowColor: 'yellow',
   },

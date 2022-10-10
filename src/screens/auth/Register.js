@@ -16,6 +16,7 @@ import {
   ImageBackground,
   Pressable,
   ScrollView,
+  Platform,
 } from 'react-native';
 import {
   widthPercentageToDP as wp,
@@ -362,6 +363,7 @@ const Register = props => {
                     color: '#F2D097',
                     fontSize: hp('2%'),
                     marginRight: 6,
+                    marginLeft: Platform.OS === 'ios' ? 10 : 0,
                   }}>
                   I agree to the terms and conditions.
                 </Text>

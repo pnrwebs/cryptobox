@@ -45,10 +45,13 @@ const Login = props => {
     success,
     set_initialStateNull,
     appVersion,
+    user,
   } = props;
 
-  const [userid, setUserId] = useState('Kamlesh');
-  const [password, setPassword] = useState('Abcd@123');
+  const [userid, setUserId] = useState('');
+  const [password, setPassword] = useState('');
+  // const [userid, setUserId] = useState('Kamlesh');
+  // const [password, setPassword] = useState('Abcd@123');
   const [auth, setAuth] = useState(false);
   const [useridError, setUseridError] = useState('');
   const [passwordError, setPasswordError] = useState('');
@@ -72,7 +75,13 @@ const Login = props => {
     console.log('success', success);
     if (status_success === true) {
       set_initialStateNull();
-      props.navigation.navigate('Dashboard');
+      if (user && user.auth_type == 'email') {
+        props.navigation.navigate('VerifyEmailOTP');
+      } else {
+        props.navigation.navigate('Dashboard');
+      }
+      // props.navigation.navigate('Dashboard');
+      // props.navigation.navigate('VerifyEmailOTP');
     } else if (status_success === false) {
       set_initialStateNull();
       Toast.show('Wrong username or password !!!', Toast.LONG);

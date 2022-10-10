@@ -472,13 +472,21 @@ const DrawerContent = props => {
                   }}
                 />
                 <DrawerItem
+                  label="Cryptobox Rewards"
+                  labelStyle={styles.subMenuLabel}
+                  // style={{bottom: -10}}
+                  onPress={() => {
+                    props.navigation.navigate('CryptoboxRewards');
+                  }}
+                />
+                <DrawerItem
                   label="Lifetime Ranking Rewards"
                   labelStyle={styles.subMenuLabel}
                   onPress={() => {
                     props.navigation.navigate('LifetimeRankingReward');
                   }}
                 />
-                <DrawerItem
+                {/* <DrawerItem
                   label="Claim Zoom Rewards"
                   labelStyle={styles.subMenuLabel}
                   // style={{bottom: -10}}
@@ -492,7 +500,7 @@ const DrawerContent = props => {
                   onPress={() => {
                     props.navigation.navigate('ZoomRewardList');
                   }}
-                />
+                /> */}
               </View>
             ) : null}
             {/* <Divider style={styles.dividerLine} /> */}

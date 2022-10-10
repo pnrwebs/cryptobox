@@ -153,6 +153,17 @@ export const putLastWeekFastTrackQualifier = payload => {
   };
 };
 
+export const getCurrentWeekFastTrackQualifier = () => ({
+  type: actionTypes.GET_CURRENT_FAST_TRACK_QUALIFIER,
+});
+
+export const putCurrentWeekFastTrackQualifier = payload => {
+  return {
+    type: actionTypes.PUT_CURRENT_FAST_TRACK_QUALIFIER,
+    payload,
+  };
+};
+
 export const submitUpdateProfile = (
   firstname,
   lastname,
@@ -177,6 +188,18 @@ export const submitUpdateProfile = (
 export const submitUpdateProfileStatus = payload => {
   return {
     type: actionTypes.SUBMIT_UPDATE_PROFILE_STATUS,
+    payload,
+  };
+};
+
+export const submitLoginOtpVerify = otp => ({
+  type: actionTypes.LOGIN_OTP_VERIFY,
+  otp,
+});
+
+export const submitLoginOtpVerifyStatus = payload => {
+  return {
+    type: actionTypes.LOGIN_OTP_VERIFY_STATUS,
     payload,
   };
 };

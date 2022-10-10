@@ -9,6 +9,7 @@ const initialState = {
   monthlyrankingclub: [],
   lifetimerankingrewards: [],
   zoomrewardlist: [],
+  cryptoboxrewards: [],
   claimRewardResp: null,
   open_status: null,
 };
@@ -88,6 +89,20 @@ const reducer = (state = initialState, action) => {
         status: payload.status,
         loading: false,
         open_status: payload.data,
+      });
+
+    case actionTypes.GET_CRYPTOBOX_REWARD_LIST:
+      return {
+        ...state,
+        loading: true,
+        status: null,
+      };
+    case actionTypes.PUT_CRYPTOBOX_REWARD_LIST:
+      return updateState(state, {
+        status: payload.status,
+        loading: false,
+        // success: true,
+        cryptoboxrewards: payload.data,
       });
 
     default:

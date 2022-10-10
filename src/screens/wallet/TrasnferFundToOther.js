@@ -35,6 +35,7 @@ import Styles from '../../css/Styles';
 import {ScrollView} from 'react-native-gesture-handler';
 import BreadcrumbBlock from '../../components/BreadcrumbBlock';
 import Toast from 'react-native-simple-toast';
+import ValidateOTPModal from '../../components/ValidateOTPModal';
 const TrasnferFundToOther = props => {
   const {
     loading,
@@ -45,6 +46,7 @@ const TrasnferFundToOther = props => {
     dash_data,
     set_initialStateNull,
   } = props;
+  const [modalStatus, setModalStatus] = useState(false);
   const [amount, setAmount] = useState('');
   const [receiverId, setReceiverId] = useState('');
   const [walletPassword, setWalletPassword] = useState('');
@@ -52,6 +54,8 @@ const TrasnferFundToOther = props => {
   const [amountError, setAmountError] = useState('');
   const [receiverIdError, setReceiverIdError] = useState('');
   const [walletPasswordError, setWalletPasswordError] = useState('');
+  const [isEditable, setIsEditable] = useState(false);
+  console.log('this is props', props);
 
   const handleSubmit = () => {
     if (amount != '' && receiverId != '' && walletPassword != '') {
@@ -76,6 +80,19 @@ const TrasnferFundToOther = props => {
       Toast.show(transfer_resp, Toast.LONG);
     }
   }, [status_success, transfer_resp]);
+
+  const handleUSDTValidation = () => {
+    // send_otp_on_email();
+    setModalStatus(!modalStatus);
+  };
+
+  const handlePopupCancel = () => {
+    props.navigation.goBack();
+  };
+
+  useEffect(() => {
+    handleUSDTValidation();
+  }, []);
 
   return loading ? (
     <LoaderIndicator />
@@ -221,6 +238,13 @@ const TrasnferFundToOther = props => {
           </View>
         </View>
       </ImageBackground>
+      <ValidateOTPModal
+        modalStatus={modalStatus}
+        handleUSDTValidation={handleUSDTValidation}
+        handleCancel={handlePopupCancel}
+        screenName={null}
+        setIsEditable={setIsEditable}
+      />
     </ScrollView>
   );
 };

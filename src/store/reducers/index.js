@@ -10,6 +10,7 @@ import rewards from './Rewards';
 import profile from './Profile';
 import knowledgecenter from './KnowledgeCenter';
 import forgotpassword from './ForgotPassword';
+import verifyotp from './VerifyOtp';
 
 const reducer = combineReducers({
   auth,
@@ -22,6 +23,7 @@ const reducer = combineReducers({
   profile,
   knowledgecenter,
   forgotpassword,
+  verifyotp,
 });
 
 export default reducer;

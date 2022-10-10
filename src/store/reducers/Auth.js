@@ -10,6 +10,7 @@ const initialState = {
   user: null,
   success: null,
   fasttrackqualifier: null,
+  currentweekfasttrackqualifier: null,
   logout: false,
   signupdata: null,
   message: null,
@@ -27,6 +28,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         success: null,
         status: null,
+        message: null,
       };
     case actionTypes.GET_APP_VERSION:
       return {
@@ -119,6 +121,19 @@ const reducer = (state = initialState, action) => {
         success: payload.data.success,
         fasttrackqualifier: payload.data,
       });
+    case actionTypes.GET_CURRENT_FAST_TRACK_QUALIFIER:
+      return {
+        ...state,
+        loading: true,
+        status: null,
+      };
+    case actionTypes.PUT_CURRENT_FAST_TRACK_QUALIFIER:
+      return updateState(state, {
+        status: payload.status,
+        loading: false,
+        success: payload.data.success,
+        currentweekfasttrackqualifier: payload.data,
+      });
 
     case actionTypes.INIT_LOGOUT:
       return {
@@ -176,6 +191,19 @@ const reducer = (state = initialState, action) => {
         status: null,
       };
     case actionTypes.SUBMIT_UPDATE_PROFILE_STATUS:
+      return updateState(state, {
+        status: payload.status,
+        loading: false,
+        success: payload.data.success,
+        message: payload.data.message,
+      });
+    case actionTypes.LOGIN_OTP_VERIFY:
+      return {
+        ...state,
+        loading: true,
+        status: null,
+      };
+    case actionTypes.LOGIN_OTP_VERIFY_STATUS:
       return updateState(state, {
         status: payload.status,
         loading: false,

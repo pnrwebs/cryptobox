@@ -183,6 +183,22 @@ export function* fastTrackQualifier() {
   }
 }
 
+export function* currentWeekFastTrackQualifier() {
+  let user_id = yield AsyncStorage.getItem('user_id');
+
+  try {
+    const data = yield API.get(
+      `?action=GetcurrentweekfasttrackbonusqualifierPositionStatus&key=${API_KEY}`,
+    );
+    console.log('saga current fast track', data);
+    if (data.status === 200) {
+      yield put(actions.putCurrentWeekFastTrackQualifier(data.data));
+    }
+  } catch (error) {
+    yield put(actions.putCurrentWeekFastTrackQualifier(error.message));
+  }
+}
+
 export function* updateProfile(action) {
   const {
     firstname,
@@ -252,5 +268,29 @@ export function* getSponsorNameSaga(action) {
     }
   } catch (error) {
     yield put(actions.putSponsorName(error.message));
+  }
+}
+export function* loginOtpVerifySaga(action) {
+  const {otp} = action;
+  let user_id = yield AsyncStorage.getItem('user_id');
+  const body = {
+    member_user_id: user_id,
+    otp: otp,
+    action: 'Verifyloginotp',
+    key: API_KEY,
+  };
+  console.log('loginOtpVerifySaga bodybody', body);
+  try {
+    const data = yield API.post('/', body);
+    console.log('loginOtpVerifySaga response data', data);
+    if (data.status === 200) {
+      yield put(actions.submitLoginOtpVerifyStatus(data));
+    } else {
+      console.log('loginOtpVerifySaga', body);
+      yield put(actions.submitLoginOtpVerifyStatus(data.status));
+    }
+  } catch (error) {
+    console.log('loginOtpVerifySaga', error.message);
+    yield put(actions.submitLoginOtpVerifyStatus(error.message));
   }
 }

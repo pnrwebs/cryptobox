@@ -8,3 +8,4 @@ export * from './Rewards';
 export * from './Profile';
 export * from './KnowledgeCenter';
 export * from './ForgotPassword';
+export * from './VerifyOtp';

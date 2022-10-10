@@ -92,7 +92,7 @@ const TwoFASetting = props => {
                 paddingHorizontal: 14,
                 paddingVertical: 10,
               }}>
-              <View
+              {/* <View
                 style={{
                   flexDirection: 'row',
                   // justifyContent: 'center',
@@ -108,7 +108,7 @@ const TwoFASetting = props => {
                 <Text style={{...Styles.inputBoxLabel, marginBottom: 0}}>
                   Google Authenticator (More Secure)
                 </Text>
-              </View>
+              </View> */}
               <View
                 style={{
                   flexDirection: 'row',

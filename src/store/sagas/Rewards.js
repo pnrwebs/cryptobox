@@ -53,6 +53,22 @@ export function* zoomRewardList() {
   }
 }
 
+export function* getCryptoboxRewardsListSaga() {
+  let user_id = yield AsyncStorage.getItem('user_id');
+
+  try {
+    const data = yield API.get(
+      `?action=Getcryptoboxrewardlistbymemberid&key=${API_KEY}&member_user_id=${user_id}`,
+    );
+    console.log('saga getCryptoboxRewardsListSaga', data);
+    if (data.status === 200) {
+      yield put(actions.putCryptoboxRewardList(data.data));
+    }
+  } catch (error) {
+    yield put(actions.putCryptoboxRewardList(error.message));
+  }
+}
+
 export function* claimMdtxReward(action) {
   const {
     zoomUsername,

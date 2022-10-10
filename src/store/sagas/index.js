@@ -11,6 +11,7 @@ import * as rewards from './Rewards';
 import * as profile from './Profile';
 import * as knowledgecenter from './KnowledgeCenter';
 import * as forgotpassword from './ForgotPassword';
+import * as verifyotp from './VerifyOtp';
 
 function* rootSaga() {
   yield takeLatest(actions.GET_APP_VERSION, auth.getAppVersionSaga);
@@ -31,6 +32,10 @@ function* rootSaga() {
   yield takeLatest(actions.UPDATE_MY_PROFILE, dashboard.updateMyProfile);
 
   yield takeLatest(actions.GET_FAST_TRACK_QUALIFIER, auth.fastTrackQualifier);
+  yield takeLatest(
+    actions.GET_CURRENT_FAST_TRACK_QUALIFIER,
+    auth.currentWeekFastTrackQualifier,
+  );
   yield takeLatest(
     actions.GET_DASHBOARD_INCOME_DETAIL,
     incomereport.dashboardIncomeDetail,
@@ -146,6 +151,10 @@ function* rootSaga() {
     rewards.lifetimeRankingRewards,
   );
   yield takeLatest(actions.GET_ZOOM_REWARD_LIST, rewards.zoomRewardList);
+  yield takeLatest(
+    actions.GET_CRYPTOBOX_REWARD_LIST,
+    rewards.getCryptoboxRewardsListSaga,
+  );
 
   yield takeLatest(actions.GET_ROI_ON_OFF, rewards.ROIOnOffSage);
 
@@ -179,5 +188,8 @@ function* rootSaga() {
   );
   yield takeLatest(actions.VERIFY_EMAIL_OTP, profile.verifyEmailOtpSaga);
   yield takeLatest(actions.SET_2FA_AUTH, profile.set2FAAuthSaga);
+  yield takeLatest(actions.LOGIN_OTP_VERIFY, auth.loginOtpVerifySaga);
+  yield takeLatest(actions.SEND_EMAIL_OTP, verifyotp.sendOtpOnEmail);
+  // yield takeLatest(actions.VERIFY_EMAIL_OTP, verifyotp.verifyOtpOnEmail);
 }
 export default rootSaga;
