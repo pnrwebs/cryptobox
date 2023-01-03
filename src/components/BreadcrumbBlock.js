@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 2,
-
+    marginBottom: Platform.OS === 'ios' ? 10 : 0,
     shadowColor: 'yellow',
     shadowOffset: {
       width: 0,

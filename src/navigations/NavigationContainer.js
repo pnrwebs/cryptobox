@@ -62,6 +62,7 @@ import {
   UpdateEmail,
   UpdateEmailOtp,
   TwoFASetting,
+  DeleteAccountRequest,
 } from '../screens/profile';
 import {KnowledgeCenter, KnowledgeDetails} from '../screens/knowledgecenter';
 import {
@@ -304,6 +305,20 @@ const HomeStackNav = props => {
         options={{
           headerShown: true,
           title: 'Invite Friends',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
+      <HomeStack.Screen
+        name="DeleteAccountRequest"
+        component={DeleteAccountRequest}
+        options={{
+          headerShown: true,
+          title: 'Delete Account Request',
           showIcon: true,
           headerStyle: styles.headers,
           headerTintColor: Colors.appHeaderTitleOther,

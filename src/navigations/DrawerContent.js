@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {initLogout} from '../store/actions';
-import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Text, TouchableOpacity, Platform} from 'react-native';
 import {Title, Caption, Drawer, Divider} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import {CUR_SYMB} from '../config/Constants';
@@ -627,6 +627,15 @@ const DrawerContent = props => {
                     props.navigation.navigate('ReferToFriends');
                   }}
                 />
+                {Platform.OS === 'ios' ? (
+                  <DrawerItem
+                    label="Delete Account"
+                    labelStyle={styles.subMenuLabel}
+                    onPress={() => {
+                      props.navigation.navigate('DeleteAccountRequest');
+                    }}
+                  />
+                ) : null}
               </View>
             ) : null}
 
