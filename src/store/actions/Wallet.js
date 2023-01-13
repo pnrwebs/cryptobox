@@ -139,6 +139,30 @@ export const withdrawalRequestMDTXStatus = payload => {
   };
 };
 
+export const withdrawalRequestCryptoboxExchange = (
+  name,
+  email,
+  phone,
+  cryptoboxExchangeAddress,
+  amount,
+  walletPassword,
+) => ({
+  type: actionTypes.WITHDRAWAL_REQUEST_CRYPTOBOX_EXCHANGE,
+  name,
+  email,
+  phone,
+  cryptoboxExchangeAddress,
+  amount,
+  walletPassword,
+});
+
+export const withdrawalRequestCryptoboxExchangeStatus = payload => {
+  return {
+    type: actionTypes.WITHDRAWAL_REQUEST_CRYPTOBOX_EXCHANGE_STATUS,
+    payload,
+  };
+};
+
 export const withdrawalInvestCompounding = (amount, walletPassword) => ({
   type: actionTypes.WITHDRAWAL_INVEST_COMPOUNDING,
   amount,

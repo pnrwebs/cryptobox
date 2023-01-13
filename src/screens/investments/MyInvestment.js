@@ -173,6 +173,7 @@ const MyInvestment = props => {
             }}>
             {my_investments && my_investments.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 50}}
                 data={my_investments ? my_investments : []}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

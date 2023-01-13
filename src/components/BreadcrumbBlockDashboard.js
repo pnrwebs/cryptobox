@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, Platform} from 'react-native';
 import Colors from '../config/Colors';
 import {
   widthPercentageToDP as wp,
@@ -57,9 +57,9 @@ const styles = StyleSheet.create({
     shadowColor: 'yellow',
     shadowOffset: {
       width: 0,
-      height: 10,
+      height: Platform.OS === 'ios' ? 1 : 10,
     },
-    shadowOpacity: 5,
+    shadowOpacity: Platform.OS === 'ios' ? 0.2 : 5,
     shadowRadius: 2.22,
     elevation: 2,
   },

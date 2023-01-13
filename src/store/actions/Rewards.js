@@ -67,3 +67,25 @@ export const putROIOnOff = payload => ({
   type: actionTypes.PUT_ROI_ON_OFF,
   payload,
 });
+
+export const getCryptoboxRewardList = () => {
+  return {
+    type: actionTypes.GET_CRYPTOBOX_REWARD_LIST,
+  };
+};
+
+export const putCryptoboxRewardList = payload => ({
+  type: actionTypes.PUT_CRYPTOBOX_REWARD_LIST,
+  payload,
+});
+
+export const getCryptoboxRegionalRewardList = () => {
+  return {
+    type: actionTypes.GET_CRYPTOBOX_REGIONAL_REWARD_LIST,
+  };
+};
+
+export const putCryptoboxRegionalRewardList = payload => ({
+  type: actionTypes.PUT_CRYPTOBOX_REGIONAL_REWARD_LIST,
+  payload,
+});

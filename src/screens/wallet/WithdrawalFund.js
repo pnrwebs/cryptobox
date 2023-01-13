@@ -22,7 +22,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import {connect} from 'react-redux';
-import {getWithdrawalOnOff} from '../../store/actions';
+import {getWithdrawalOnOff, sendEmailOTP} from '../../store/actions';
 import {CUR_SYMB, POST_LOGIN_BG} from '../../config/Constants';
 import LoaderIndicator from '../../components/LoaderIndicator';
 import Icon1 from 'react-native-vector-icons/Fontisto';
@@ -31,13 +31,25 @@ import Styles from '../../css/Styles';
 import {ScrollView} from 'react-native-gesture-handler';
 import BreadcrumbBlock from '../../components/BreadcrumbBlock';
 import {currency, ucword} from '../../utils/UtilityFunctions';
-
+import ValidateOTPModal from '../../components/ValidateOTPModal';
 const WithdrawalFund = props => {
   const {loading, walletbalance_resp, get_WithdrawalOnOff, on_off_status} =
     props;
+
+  const [modalStatus, setModalStatus] = useState(false);
+
   useEffect(() => {
     get_WithdrawalOnOff();
   }, []);
+
+  const handleUSDTValidation = () => {
+    // send_otp_on_email();
+    setModalStatus(!modalStatus);
+  };
+  const handlePopupCancel = () => {
+    handleUSDTValidation();
+  };
+
   return loading ? (
     <LoaderIndicator />
   ) : (
@@ -126,9 +138,7 @@ const WithdrawalFund = props => {
                 flexDirection: 'row',
               }}>
               <Pressable
-                onPress={() =>
-                  props.navigation.navigate('WithdrawalRequestUSDT')
-                }
+                onPress={() => handleUSDTValidation()}
                 style={{
                   ...Styles.ctaButton,
                   paddingVertical: hp('1%'),
@@ -139,7 +149,7 @@ const WithdrawalFund = props => {
                   Withdraw fund with USDT
                 </Text>
               </Pressable>
-              <Pressable
+              {/* <Pressable
                 onPress={() =>
                   props.navigation.navigate('WithdrawalRequestMDTX')
                 }
@@ -150,7 +160,21 @@ const WithdrawalFund = props => {
                   width: wp('60%'),
                 }}>
                 <Text style={Styles.ctaButtonText}>
-                  Withdraw fund with MDTX
+                  Withdraw fund to MDTX
+                </Text>
+              </Pressable> */}
+              <Pressable
+                onPress={() =>
+                  props.navigation.navigate('WithdrawalRequestCryptoExchange')
+                }
+                style={{
+                  ...Styles.ctaButton,
+                  paddingVertical: hp('1%'),
+                  // paddingHorizontal: wp('2%'),
+                  width: wp('60%'),
+                }}>
+                <Text style={Styles.ctaButtonText}>
+                  Transfer fund to Cryptobox exchange
                 </Text>
               </Pressable>
               <Pressable
@@ -191,12 +215,18 @@ const WithdrawalFund = props => {
                   textTransform: 'capitalize',
                 }}>
                 Your cryptobox account scheduled weekly withdrawal is every
-                Sunday.
+                Saturday.
               </Text>
             </View>
           )}
         </View>
       </ImageBackground>
+      <ValidateOTPModal
+        modalStatus={modalStatus}
+        handleUSDTValidation={handleUSDTValidation}
+        handleCancel={handlePopupCancel}
+        screenName={'WithdrawalRequestUSDT'}
+      />
     </ScrollView>
   );
 };
@@ -220,6 +250,7 @@ const styles = StyleSheet.create({
 const mapDispatchToProps = dispatch => ({
   // set_initialStateNull: () => dispatch(setInitialStateNullReward()),
   get_WithdrawalOnOff: () => dispatch(getWithdrawalOnOff()),
+  send_otp_on_email: () => dispatch(sendEmailOTP()),
 });
 const mapStateToProps = state => {
   console.log('on withdrawal fund', state);
@@ -228,6 +259,7 @@ const mapStateToProps = state => {
     loading: state.wallet.loading,
     walletbalance_resp: state.wallet.incomeWB,
     on_off_status: state.wallet.open_status,
+    sentotp: state.verifyotp.sendotpstatus,
   };
 };
 

@@ -11,9 +11,10 @@ import {
   Image,
   StyleSheet,
   Pressable,
+  Platform,
 } from 'react-native';
 import Animated from 'react-native-reanimated';
-
+import AsyncStorage from '@react-native-community/async-storage';
 import Colors from '../config/Colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -30,12 +31,14 @@ const DashboardDrawer = createDrawerNavigator();
 
 // Screens
 import ImageSplashScreen from '../screens/ImageSplashScreen';
-
+// let isUserId = await AsyncStorage.getItem('user_id');
 import {
   Login,
   Register,
   RegistrationSuccessfull,
   ForgotPassword,
+  VerifyEmailOTP,
+  VerifyGoogleAuth,
 } from '../screens/auth';
 
 import {
@@ -44,6 +47,7 @@ import {
   WalletBalance,
   StatusScreen,
   LastWeekFastTrack,
+  CurrentWeekFastTrack,
 } from '../screens';
 
 import {
@@ -55,6 +59,11 @@ import {
   MyTicketHistory,
   MyTicketDetails,
   ReferToFriends,
+  UpdateEmail,
+  UpdateEmailOtp,
+  TwoFASetting,
+  DeleteAccountRequest,
+  ForgotTxnPassword,
 } from '../screens/profile';
 import {KnowledgeCenter, KnowledgeDetails} from '../screens/knowledgecenter';
 import {
@@ -63,6 +72,8 @@ import {
   LifetimeRankingRewardDetails,
   ClaimZoomRewards,
   ZoomRewardList,
+  ArchivedRewards,
+  CryptoboxRewards,
 } from '../screens/clubandrewards';
 
 import {
@@ -108,7 +119,11 @@ import {
   TransferFundToInvestmentWallet,
   WithdrawInvestInCompounding,
   WithdrawalFundStatus,
+  WithdrawalRequestCryptoExchange,
+  WithdrawalFundUSDTStatus,
 } from '../screens/wallet';
+
+// let isUserId = await AsyncStorage.getItem('user_id');
 
 const HeaderLeft = () => {
   const navigation = useNavigation();
@@ -305,6 +320,76 @@ const HomeStackNav = props => {
         }}
       />
       <HomeStack.Screen
+        name="DeleteAccountRequest"
+        component={DeleteAccountRequest}
+        options={{
+          headerShown: true,
+          title: 'Delete Account Request',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
+      <HomeStack.Screen
+        name="ForgotTxnPassword"
+        component={ForgotTxnPassword}
+        options={{
+          headerShown: true,
+          title: 'Forgot Wallet Password',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
+      <HomeStack.Screen
+        name="UpdateEmail"
+        component={UpdateEmail}
+        options={{
+          headerShown: true,
+          title: 'Update Email',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
+      <HomeStack.Screen
+        name="UpdateEmailOtp"
+        component={UpdateEmailOtp}
+        options={{
+          headerShown: true,
+          title: 'Enter OTP',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
+      <HomeStack.Screen
+        name="TwoFASetting"
+        component={TwoFASetting}
+        options={{
+          headerShown: true,
+          title: '2FA Setting',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
+      <HomeStack.Screen
         name="KnowledgeCenter"
         component={KnowledgeCenter}
         options={{
@@ -394,6 +479,34 @@ const HomeStackNav = props => {
         options={{
           headerShown: true,
           title: 'Zoom Reward List',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
+      <HomeStack.Screen
+        name="ArchivedRewards"
+        component={ArchivedRewards}
+        options={{
+          headerShown: true,
+          title: 'Archived Rewards',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
+      <HomeStack.Screen
+        name="CryptoboxRewards"
+        component={CryptoboxRewards}
+        options={{
+          headerShown: true,
+          title: 'Cryptobox Regional Rewards',
           showIcon: true,
           headerStyle: styles.headers,
           headerTintColor: Colors.appHeaderTitleOther,
@@ -824,6 +937,20 @@ const HomeStackNav = props => {
         }}
       />
       <HomeStack.Screen
+        name="WithdrawalFundUSDTStatus"
+        component={WithdrawalFundUSDTStatus}
+        options={{
+          headerShown: true,
+          title: 'Withdrawal USDT Status',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
+      <HomeStack.Screen
         name="WithdrawalRequestUSDT"
         component={WithdrawalRequestUSDT}
         options={{
@@ -843,6 +970,20 @@ const HomeStackNav = props => {
         options={{
           headerShown: true,
           title: 'Withdrawal Request MDTX',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
+      <HomeStack.Screen
+        name="WithdrawalRequestCryptoExchange"
+        component={WithdrawalRequestCryptoExchange}
+        options={{
+          headerShown: true,
+          title: 'Transfer to Cryptobox Exchange',
           showIcon: true,
           headerStyle: styles.headers,
           headerTintColor: Colors.appHeaderTitleOther,
@@ -893,6 +1034,20 @@ const HomeStackNav = props => {
           // headerRight: ({}) => <HeaderRight />,
         }}
       />
+      <HomeStack.Screen
+        name="CurrentWeekFastTrack"
+        component={CurrentWeekFastTrack}
+        options={{
+          headerShown: true,
+          title: 'Current Week Qualifier',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
     </HomeStack.Navigator>
   );
 };
@@ -905,9 +1060,11 @@ const HomeDrawer = props => {
     <>
       <StatusBar barStyle="light-content" hidden={false} />
       <DashboardDrawer.Navigator
-        drawerType="front"
         overlayColor="transparent"
         drawerStatusBarAnimation="slide"
+        // screenOptions={{
+        //   drawerType: dimensions.width >= 768 ? 'permanent' : 'front',
+        // }}
         drawerContent={props => (
           <DrawerContent
             {...props}
@@ -917,9 +1074,10 @@ const HomeDrawer = props => {
         screenOptions={{
           drawerStyle: {
             width: '80%',
-            marginTop: 56,
+            marginTop: Platform.OS === 'ios' ? 0 : 56,
             backgroundColor: Colors.drawerBackground,
           },
+          drawerType: 'front',
         }}>
         <DashboardDrawer.Screen
           name="Home"
@@ -947,6 +1105,20 @@ export default function AppNavigation() {
         <AuthStack.Screen
           name="Login"
           component={Login}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <AuthStack.Screen
+          name="VerifyEmailOTP"
+          component={VerifyEmailOTP}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <AuthStack.Screen
+          name="VerifyGoogleAuth"
+          component={VerifyGoogleAuth}
           options={{
             headerShown: false,
           }}
@@ -991,7 +1163,7 @@ const styles = StyleSheet.create({
     // borderBottomColor: Colors.icons,
     // borderBottomLeftRadius: 15,
     // borderBottomRightRadius: 15,
-    height: 70,
+    height: Platform.OS === 'ios' ? 100 : 70,
     // borderBottomWidth: 1,
     // shadowColor: 'yellow',
   },

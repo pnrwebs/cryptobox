@@ -11,6 +11,17 @@ export const setAppVersion = payload => {
   };
 };
 
+export const getSponsorName = sponsorid => ({
+  type: actionTypes.GET_SPONSOR_NAME,
+  sponsorid,
+});
+
+export const putSponsorName = payload => {
+  return {
+    type: actionTypes.PUT_SPONSOR_NAME,
+    payload,
+  };
+};
 export const initLogin = (userid, password) => ({
   type: actionTypes.INIT_LOGIN,
   userid,
@@ -142,6 +153,17 @@ export const putLastWeekFastTrackQualifier = payload => {
   };
 };
 
+export const getCurrentWeekFastTrackQualifier = () => ({
+  type: actionTypes.GET_CURRENT_FAST_TRACK_QUALIFIER,
+});
+
+export const putCurrentWeekFastTrackQualifier = payload => {
+  return {
+    type: actionTypes.PUT_CURRENT_FAST_TRACK_QUALIFIER,
+    payload,
+  };
+};
+
 export const submitUpdateProfile = (
   firstname,
   lastname,
@@ -166,6 +188,18 @@ export const submitUpdateProfile = (
 export const submitUpdateProfileStatus = payload => {
   return {
     type: actionTypes.SUBMIT_UPDATE_PROFILE_STATUS,
+    payload,
+  };
+};
+
+export const submitLoginOtpVerify = otp => ({
+  type: actionTypes.LOGIN_OTP_VERIFY,
+  otp,
+});
+
+export const submitLoginOtpVerifyStatus = payload => {
+  return {
+    type: actionTypes.LOGIN_OTP_VERIFY_STATUS,
     payload,
   };
 };

@@ -15,6 +15,7 @@ import {
   TextInput,
   ImageBackground,
   Pressable,
+  Platform,
 } from 'react-native';
 import {
   widthPercentageToDP as wp,
@@ -340,9 +341,9 @@ const styles = StyleSheet.create({
     shadowColor: '#FFF',
     shadowOffset: {
       width: 0,
-      height: 5,
+      height: Platform.OS === 'ios' ? 1 : 5,
     },
-    shadowOpacity: 5,
+    shadowOpacity: Platform.OS === 'ios' ? 0.2 : 5,
     shadowRadius: 2.22,
     elevation: 4,
   },
@@ -359,9 +360,9 @@ const styles = StyleSheet.create({
     shadowColor: '#FFF',
     shadowOffset: {
       width: 0,
-      height: 5,
+      height: Platform.OS === 'ios' ? 1 : 5,
     },
-    shadowOpacity: 5,
+    shadowOpacity: Platform.OS === 'ios' ? 0.2 : 5,
     shadowRadius: 2.22,
     elevation: 4,
   },
@@ -393,9 +394,9 @@ const styles = StyleSheet.create({
     shadowColor: '#ac7703',
     shadowOffset: {
       width: 0,
-      height: 1,
+      height: Platform.OS === 'ios' ? 1 : 5,
     },
-    shadowOpacity: 3,
+    shadowOpacity: Platform.OS === 'ios' ? 0.2 : 3,
     shadowRadius: 2,
     elevation: 1,
   },

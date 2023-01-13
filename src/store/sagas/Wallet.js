@@ -242,6 +242,38 @@ export function* withdrawalRequestMdtxSaga(action) {
   }
 }
 
+export function* withdrawalRequestCryptoboxExchangeSaga(action) {
+  const {name, email, phone, cryptoboxExchangeAddress, amount, walletPassword} =
+    action;
+  let user_id = yield AsyncStorage.getItem('user_id');
+  const body = {
+    member_user_id: user_id,
+    name: name,
+    email: email,
+    exchange_account_number: cryptoboxExchangeAddress,
+    phone: phone,
+    amount: amount,
+    password: walletPassword,
+    action: 'Withdrawfundtocryptoboxexchangebymemberid',
+    key: API_KEY,
+  };
+  console.log('withdrawalRequestCryptoboxExchangeSaga bodybody', body);
+  try {
+    const data = yield API.post('/', body);
+    console.log('withdrawalRequestCryptoboxExchangeSaga response data', data);
+    if (data.status === 200) {
+      // yield incomeWalletBalanceSaga();
+      yield put(actions.withdrawalRequestCryptoboxExchangeStatus(data));
+    } else {
+      console.log('withdrawalRequestCryptoboxExchangeSaga', body);
+      yield put(actions.withdrawalRequestCryptoboxExchangeStatus(data.status));
+    }
+  } catch (error) {
+    console.log('withdrawalRequestCryptoboxExchangeSaga', error.message);
+    yield put(actions.withdrawalRequestCryptoboxExchangeStatus(error.message));
+  }
+}
+
 export function* withdrawalInvestCompoundingSaga(action) {
   const {amount, walletPassword} = action;
   let user_id = yield AsyncStorage.getItem('user_id');

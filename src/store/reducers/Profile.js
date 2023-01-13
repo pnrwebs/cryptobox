@@ -101,6 +101,58 @@ const reducer = (state = initialState, action) => {
         success: payload.data.success,
         message: payload.data.message,
       });
+    case actionTypes.UPDATE_EMAIL_ADDRESS:
+      return {
+        ...state,
+        loading: true,
+        status: null,
+      };
+    case actionTypes.UPDATE_EMAIL_ADDRESS_STATUS:
+      return updateState(state, {
+        status: payload.status,
+        loading: false,
+        success: payload.data.success,
+        message: payload.data.message,
+      });
+    case actionTypes.VERIFY_EMAIL_OTP:
+      return {
+        ...state,
+        loading: true,
+        status: null,
+      };
+    case actionTypes.VERIFY_EMAIL_OTP_STATUS:
+      return updateState(state, {
+        status: payload.status,
+        loading: false,
+        success: payload.data.success,
+        message: payload.data.message,
+      });
+    case actionTypes.SET_2FA_AUTH:
+      return {
+        ...state,
+        loading: true,
+        status: null,
+      };
+    case actionTypes.SET_2FA_AUTH_STATUS:
+      return updateState(state, {
+        status: payload.status,
+        loading: false,
+        success: payload.data.success,
+        message: payload.data.message,
+      });
+    case actionTypes.SEND_TXN_PASS_CHANGE:
+      return {
+        ...state,
+        loading: true,
+        status: null,
+      };
+    case actionTypes.SEND_TXN_PASS_CHANGE_STATUS:
+      return updateState(state, {
+        status: payload.status,
+        loading: false,
+        success: payload.data.success,
+        message: payload.data.message,
+      });
     default:
       return state;
   }

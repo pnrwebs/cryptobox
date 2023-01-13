@@ -15,6 +15,7 @@ import {
   TextInput,
   ImageBackground,
   Pressable,
+  Platform,
 } from 'react-native';
 import {connect} from 'react-redux';
 import {reloadAllWalletBalance} from '../store/actions';
@@ -130,7 +131,34 @@ const Dashboard = props => {
               </Text>
             </View>
           </Pressable>
-
+          <Pressable
+            onPress={() => props.navigation.navigate('CurrentWeekFastTrack')}
+            style={{
+              ...styles.box2,
+              width: wp('98%'),
+              marginTop: 10,
+              flexDirection: 'row',
+              paddingHorizontal: 35,
+            }}>
+            <View style={{width: '30%'}}>
+              <Icon
+                name="format-list-numbered"
+                color={Colors.icons}
+                size={70}
+              />
+            </View>
+            <View style={{width: '70%'}}>
+              <Text
+                style={{
+                  color: '#d2ccb4',
+                  fontFamily: 'Poppins-Medium',
+                  fontSize: 20,
+                  textAlign: 'center',
+                }}>
+                Current Week Fast Track Bonus Qualifier{' '}
+              </Text>
+            </View>
+          </Pressable>
           <View
             style={{
               marginTop: 10,
@@ -169,7 +197,7 @@ const Dashboard = props => {
                   ? dash_data.standard_group_balance_count
                   : ''}
               </Text>
-              <Text style={styles.text}>Standered Group</Text>
+              <Text style={styles.text}>Standard Group</Text>
             </Pressable>
           </View>
           <View
@@ -239,9 +267,9 @@ const styles = StyleSheet.create({
     shadowColor: '#FFF',
     shadowOffset: {
       width: 0,
-      height: 5,
+      height: Platform.OS === 'ios' ? 1 : 5,
     },
-    shadowOpacity: 5,
+    shadowOpacity: Platform.OS === 'ios' ? 0.1 : 5,
     shadowRadius: 2.22,
     elevation: 4,
   },
@@ -258,9 +286,9 @@ const styles = StyleSheet.create({
     shadowColor: '#FFF',
     shadowOffset: {
       width: 0,
-      height: 5,
+      height: Platform.OS === 'ios' ? 1 : 5,
     },
-    shadowOpacity: 5,
+    shadowOpacity: Platform.OS === 'ios' ? 0.2 : 5,
     shadowRadius: 2.22,
     elevation: 4,
   },

@@ -23,6 +23,7 @@ export default StyleSheet.create({
     // marginLeft: 20,
     color: 'red',
     marginTop: -10,
+    marginBottom: 10,
   },
   spinnerTextStyle: {
     color: '#FFF',

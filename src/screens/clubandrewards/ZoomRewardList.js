@@ -180,6 +180,7 @@ const ZoomRewardList = props => {
             }}>
             {zoom_reward_list && zoom_reward_list.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 40}}
                 data={zoom_reward_list ? zoom_reward_list : []}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

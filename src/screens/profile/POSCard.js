@@ -142,7 +142,7 @@ const POSCard = props => {
                     color: Colors.appHeaderTitleMain,
                     fontSize: hp('2%'),
                   }}>
-                  Card Fee : 49 USD (Once Off)
+                  Card Fee : 49 USD (One Time Payment)
                 </Text>
               </View>
               <View

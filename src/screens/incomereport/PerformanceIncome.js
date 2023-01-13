@@ -215,6 +215,7 @@ const PerformanceIncome = props => {
             }}>
             {per_inc_rep && per_inc_rep.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 40}}
                 data={per_inc_rep ? per_inc_rep : []}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

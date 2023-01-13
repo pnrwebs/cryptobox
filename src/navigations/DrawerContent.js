@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {initLogout} from '../store/actions';
-import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Text, TouchableOpacity, Platform} from 'react-native';
 import {Title, Caption, Drawer, Divider} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import {CUR_SYMB} from '../config/Constants';
@@ -472,13 +472,29 @@ const DrawerContent = props => {
                   }}
                 />
                 <DrawerItem
+                  label="Archived Rewards"
+                  labelStyle={styles.subMenuLabel}
+                  // style={{bottom: -10}}
+                  onPress={() => {
+                    props.navigation.navigate('ArchivedRewards');
+                  }}
+                />
+                <DrawerItem
+                  label="Cryptobox Rewards"
+                  labelStyle={styles.subMenuLabel}
+                  // style={{bottom: -10}}
+                  onPress={() => {
+                    props.navigation.navigate('CryptoboxRewards');
+                  }}
+                />
+                <DrawerItem
                   label="Lifetime Ranking Rewards"
                   labelStyle={styles.subMenuLabel}
                   onPress={() => {
                     props.navigation.navigate('LifetimeRankingReward');
                   }}
                 />
-                <DrawerItem
+                {/* <DrawerItem
                   label="Claim Zoom Rewards"
                   labelStyle={styles.subMenuLabel}
                   // style={{bottom: -10}}
@@ -492,7 +508,7 @@ const DrawerContent = props => {
                   onPress={() => {
                     props.navigation.navigate('ZoomRewardList');
                   }}
-                />
+                /> */}
               </View>
             ) : null}
             {/* <Divider style={styles.dividerLine} /> */}
@@ -567,6 +583,29 @@ const DrawerContent = props => {
                   }}
                 />
                 <DrawerItem
+                  label="Forgot Wallet Password"
+                  labelStyle={styles.subMenuLabel}
+                  onPress={() => {
+                    props.navigation.navigate('ForgotTxnPassword');
+                  }}
+                />
+                <DrawerItem
+                  label="Update Email"
+                  labelStyle={styles.subMenuLabel}
+                  // style={{bottom: -10}}
+                  onPress={() => {
+                    props.navigation.navigate('UpdateEmail');
+                  }}
+                />
+                <DrawerItem
+                  label="2FA Setting"
+                  labelStyle={styles.subMenuLabel}
+                  // style={{bottom: -10}}
+                  onPress={() => {
+                    props.navigation.navigate('TwoFASetting');
+                  }}
+                />
+                <DrawerItem
                   label="Sub Accounts"
                   labelStyle={styles.subMenuLabel}
                   // style={{bottom: -10}}
@@ -603,6 +642,15 @@ const DrawerContent = props => {
                     props.navigation.navigate('ReferToFriends');
                   }}
                 />
+                {Platform.OS === 'ios' ? (
+                  <DrawerItem
+                    label="Delete Account"
+                    labelStyle={styles.subMenuLabel}
+                    onPress={() => {
+                      props.navigation.navigate('DeleteAccountRequest');
+                    }}
+                  />
+                ) : null}
               </View>
             ) : null}
 

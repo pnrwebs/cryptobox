@@ -227,6 +227,7 @@ const TransferFundReport = props => {
             }}>
             {transfer_fund_report && transfer_fund_report.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 50}}
                 data={transfer_fund_report ? transfer_fund_report : []}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

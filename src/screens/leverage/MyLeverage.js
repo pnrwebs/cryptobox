@@ -141,7 +141,7 @@ const MyLeverage = props => {
         resizeMode="stretch"
         style={styles.image}>
         <View style={Styles.secondContainerView}>
-          <BreadcrumbBlock first={'Laverage'} second={'My Laverage'} />
+          <BreadcrumbBlock first={'Leverage'} second={'My Leverage'} />
           <View
             style={{
               backgroundColor: Colors.containerBg1,
@@ -150,6 +150,7 @@ const MyLeverage = props => {
             }}>
             {my_leverage && my_leverage.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 40}}
                 data={my_leverage ? my_leverage : []}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

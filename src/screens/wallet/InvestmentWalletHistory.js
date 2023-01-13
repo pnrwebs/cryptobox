@@ -235,6 +235,7 @@ const InvestmentWalletHistory = props => {
             {investment_wallet_history &&
             investment_wallet_history.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 50}}
                 data={
                   investment_wallet_history ? investment_wallet_history : []
                 }

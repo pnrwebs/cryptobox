@@ -65,6 +65,9 @@ const WithdrawalRequestUSDT = props => {
     }
   };
   useEffect(() => {
+    props.navigation.navigate('WithdrawalFundUSDTStatus', {
+      showData: withdrawalRequestUsdt_resp,
+    });
     if (status_success === true) {
       set_initialStateNull();
       setUsdtAddress('');
@@ -110,7 +113,7 @@ const WithdrawalRequestUSDT = props => {
                 }}>
                 Note:{' '}
               </Text>
-              Maximum withdrawal amount is {CUR_SYMB}30
+              Minimum withdrawal amount is {CUR_SYMB}30
             </Text>
             <Text
               style={{

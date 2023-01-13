@@ -169,6 +169,7 @@ const CorporatePerformanceIncome = props => {
             }}>
             {corp_per_inc_rep && corp_per_inc_rep.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 40}}
                 data={corp_per_inc_rep ? corp_per_inc_rep : []}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

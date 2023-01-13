@@ -282,6 +282,7 @@ const AddFundHistory = props => {
             }}>
             {add_fund_history && add_fund_history.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 50}}
                 data={add_fund_history ? add_fund_history : []}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

@@ -231,6 +231,7 @@ const CashWalletHistory = props => {
             }}>
             {cash_wallet_history && cash_wallet_history.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 50}}
                 data={cash_wallet_history ? cash_wallet_history : []}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

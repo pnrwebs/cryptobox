@@ -49,7 +49,7 @@ const LifetimeRankingReward = props => {
   return loading ? (
     <LoaderIndicator />
   ) : (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={{flexGrow: 1}}>
       <ImageBackground
         source={POST_LOGIN_BG}
         resizeMode="stretch"
@@ -125,7 +125,7 @@ const LifetimeRankingReward = props => {
                     fontFamily: 'Poppins-Medium',
                     fontSize: 14,
                   }}>
-                  Direct Referals:{' '}
+                  Permium Group Direct Referal Target:{' '}
                   <Text
                     style={{
                       color: Colors.fontColor1,
@@ -133,8 +133,8 @@ const LifetimeRankingReward = props => {
                       fontSize: 14,
                     }}>
                     {lifetime_ranking_rewards &&
-                    lifetime_ranking_rewards.direct_referrral_count1
-                      ? lifetime_ranking_rewards.direct_referrral_count1
+                    lifetime_ranking_rewards.number_of_direct_referral_target_premium1
+                      ? lifetime_ranking_rewards.number_of_direct_referral_target_premium1
                       : '0'}
                   </Text>
                 </Text>
@@ -167,8 +167,29 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Strong Leg 50% Business Target:{' '}
+                    STANDARD GROUP DIRECT REFERRAL TARGET{' '}
+                    <Text
+                      style={{
+                        color: Colors.fontColor1,
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 14,
+                      }}>
+                      {lifetime_ranking_rewards &&
+                      lifetime_ranking_rewards.number_of_direct_referral_target_standard1
+                        ? lifetime_ranking_rewards.number_of_direct_referral_target_standard1
+                        : ''}
+                    </Text>
+                  </Text>
+                  <Text
+                    style={{
+                      color: Colors.icons,
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: 14,
+                      textTransform: 'capitalize',
+                    }}>
+                    PREMIUM GROUP 50% BUSINESS TARGET:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -186,8 +207,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Other Leg 50% Business Target:{' '}
+                    STANDARD GROUP 50% BUSINESS TARGET:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -205,8 +227,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Number Of Direct Referral Target:{' '}
+                    PREMIUM GROUP DIRECT REFERRAL:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -214,8 +237,8 @@ const LifetimeRankingReward = props => {
                         fontSize: 14,
                       }}>
                       {lifetime_ranking_rewards &&
-                      lifetime_ranking_rewards.number_of_direct_referral_target1
-                        ? lifetime_ranking_rewards.number_of_direct_referral_target1
+                      lifetime_ranking_rewards.direct_referrral_count_premium1
+                        ? lifetime_ranking_rewards.direct_referrral_count_premium1
                         : ''}
                     </Text>
                   </Text>
@@ -224,8 +247,29 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Strong Leg Business:{' '}
+                    STANDARD GROUP DIRECT REFERRAL:{' '}
+                    <Text
+                      style={{
+                        color: Colors.fontColor1,
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 14,
+                      }}>
+                      {lifetime_ranking_rewards &&
+                      lifetime_ranking_rewards.direct_referrral_count_standard1
+                        ? lifetime_ranking_rewards.direct_referrral_count_standard1
+                        : ''}
+                    </Text>
+                  </Text>
+                  <Text
+                    style={{
+                      color: Colors.icons,
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: 14,
+                      textTransform: 'capitalize',
+                    }}>
+                    PREMIUM GROUP BUSINESS:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -243,8 +287,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Other Leg Business:{' '}
+                    STANDARD GROUP BUSINESS:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -321,7 +366,7 @@ const LifetimeRankingReward = props => {
                     fontFamily: 'Poppins-Medium',
                     fontSize: 14,
                   }}>
-                  Direct Referals:{' '}
+                  Permium Group Direct Referal Target:{' '}
                   <Text
                     style={{
                       color: Colors.fontColor1,
@@ -329,8 +374,8 @@ const LifetimeRankingReward = props => {
                       fontSize: 14,
                     }}>
                     {lifetime_ranking_rewards &&
-                    lifetime_ranking_rewards.direct_referrral_count2
-                      ? lifetime_ranking_rewards.direct_referrral_count2
+                    lifetime_ranking_rewards.number_of_direct_referral_target_premium2
+                      ? lifetime_ranking_rewards.number_of_direct_referral_target_premium2
                       : '0'}
                   </Text>
                 </Text>
@@ -363,8 +408,29 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Strong Leg 50% Business Target:{' '}
+                    STANDARD GROUP DIRECT REFERRAL TARGET:{' '}
+                    <Text
+                      style={{
+                        color: Colors.fontColor1,
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 14,
+                      }}>
+                      {lifetime_ranking_rewards &&
+                      lifetime_ranking_rewards.number_of_direct_referral_target_standard2
+                        ? lifetime_ranking_rewards.number_of_direct_referral_target_standard2
+                        : ''}
+                    </Text>
+                  </Text>
+                  <Text
+                    style={{
+                      color: Colors.icons,
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: 14,
+                      textTransform: 'capitalize',
+                    }}>
+                    PREMIUM GROUP 50% BUSINESS TARGET:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -382,8 +448,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Other Leg 50% Business Target:{' '}
+                    STANDARD GROUP 50% BUSINESS TARGET:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -401,8 +468,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Number Of Direct Referral Target:{' '}
+                    PREMIUM GROUP DIRECT REFERRAL:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -410,8 +478,8 @@ const LifetimeRankingReward = props => {
                         fontSize: 14,
                       }}>
                       {lifetime_ranking_rewards &&
-                      lifetime_ranking_rewards.number_of_direct_referral_target2
-                        ? lifetime_ranking_rewards.number_of_direct_referral_target2
+                      lifetime_ranking_rewards.direct_referrral_count_premium2
+                        ? lifetime_ranking_rewards.direct_referrral_count_premium2
                         : ''}
                     </Text>
                   </Text>
@@ -420,8 +488,29 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Strong Leg Business:{' '}
+                    STANDARD GROUP DIRECT REFERRAL:{' '}
+                    <Text
+                      style={{
+                        color: Colors.fontColor1,
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 14,
+                      }}>
+                      {lifetime_ranking_rewards &&
+                      lifetime_ranking_rewards.direct_referrral_count_standard2
+                        ? lifetime_ranking_rewards.direct_referrral_count_standard2
+                        : ''}
+                    </Text>
+                  </Text>
+                  <Text
+                    style={{
+                      color: Colors.icons,
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: 14,
+                      textTransform: 'capitalize',
+                    }}>
+                    PREMIUM GROUP BUSINESS:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -439,8 +528,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Other Leg Business:{' '}
+                    STANDARD GROUP BUSINESS:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -517,7 +607,7 @@ const LifetimeRankingReward = props => {
                     fontFamily: 'Poppins-Medium',
                     fontSize: 14,
                   }}>
-                  Direct Referals:{' '}
+                  Permium Group Direct Referal Target:{' '}
                   <Text
                     style={{
                       color: Colors.fontColor1,
@@ -525,8 +615,8 @@ const LifetimeRankingReward = props => {
                       fontSize: 14,
                     }}>
                     {lifetime_ranking_rewards &&
-                    lifetime_ranking_rewards.direct_referrral_count3
-                      ? lifetime_ranking_rewards.direct_referrral_count3
+                    lifetime_ranking_rewards.number_of_direct_referral_target_premium3
+                      ? lifetime_ranking_rewards.number_of_direct_referral_target_premium3
                       : '0'}
                   </Text>
                 </Text>
@@ -559,8 +649,29 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Strong Leg 50% Business Target:{' '}
+                    STANDARD GROUP DIRECT REFERRAL TARGET:{' '}
+                    <Text
+                      style={{
+                        color: Colors.fontColor1,
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 14,
+                      }}>
+                      {lifetime_ranking_rewards &&
+                      lifetime_ranking_rewards.number_of_direct_referral_target_standard3
+                        ? lifetime_ranking_rewards.number_of_direct_referral_target_standard3
+                        : ''}
+                    </Text>
+                  </Text>
+                  <Text
+                    style={{
+                      color: Colors.icons,
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: 14,
+                      textTransform: 'capitalize',
+                    }}>
+                    PREMIUM GROUP 50% BUSINESS TARGET:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -578,8 +689,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Other Leg 50% Business Target:{' '}
+                    STANDARD GROUP 50% BUSINESS TARGET:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -597,8 +709,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Number Of Direct Referral Target:{' '}
+                    PREMIUM GROUP DIRECT REFERRAL:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -606,8 +719,8 @@ const LifetimeRankingReward = props => {
                         fontSize: 14,
                       }}>
                       {lifetime_ranking_rewards &&
-                      lifetime_ranking_rewards.number_of_direct_referral_target3
-                        ? lifetime_ranking_rewards.number_of_direct_referral_target3
+                      lifetime_ranking_rewards.direct_referrral_count_premium3
+                        ? lifetime_ranking_rewards.direct_referrral_count_premium3
                         : ''}
                     </Text>
                   </Text>
@@ -616,8 +729,29 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Strong Leg Business:{' '}
+                    STANDARD GROUP DIRECT REFERRAL:{' '}
+                    <Text
+                      style={{
+                        color: Colors.fontColor1,
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 14,
+                      }}>
+                      {lifetime_ranking_rewards &&
+                      lifetime_ranking_rewards.direct_referrral_count_standard3
+                        ? lifetime_ranking_rewards.direct_referrral_count_standard3
+                        : ''}
+                    </Text>
+                  </Text>
+                  <Text
+                    style={{
+                      color: Colors.icons,
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: 14,
+                      textTransform: 'capitalize',
+                    }}>
+                    PREMIUM GROUP BUSINESS:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -635,8 +769,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Other Leg Business:{' '}
+                    STANDARD GROUP BUSINESS:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -713,7 +848,7 @@ const LifetimeRankingReward = props => {
                     fontFamily: 'Poppins-Medium',
                     fontSize: 14,
                   }}>
-                  Direct Referals:{' '}
+                  Permium Group Direct Referal Target:{' '}
                   <Text
                     style={{
                       color: Colors.fontColor1,
@@ -721,8 +856,8 @@ const LifetimeRankingReward = props => {
                       fontSize: 14,
                     }}>
                     {lifetime_ranking_rewards &&
-                    lifetime_ranking_rewards.direct_referrral_count4
-                      ? lifetime_ranking_rewards.direct_referrral_count4
+                    lifetime_ranking_rewards.number_of_direct_referral_target_premium4
+                      ? lifetime_ranking_rewards.number_of_direct_referral_target_premium4
                       : '0'}
                   </Text>
                 </Text>
@@ -755,8 +890,29 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Strong Leg 50% Business Target:{' '}
+                    STANDARD GROUP DIRECT REFERRAL TARGET:{' '}
+                    <Text
+                      style={{
+                        color: Colors.fontColor1,
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 14,
+                      }}>
+                      {lifetime_ranking_rewards &&
+                      lifetime_ranking_rewards.number_of_direct_referral_target_standard4
+                        ? lifetime_ranking_rewards.number_of_direct_referral_target_standard4
+                        : ''}
+                    </Text>
+                  </Text>
+                  <Text
+                    style={{
+                      color: Colors.icons,
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: 14,
+                      textTransform: 'capitalize',
+                    }}>
+                    PREMIUM GROUP 50% BUSINESS TARGET:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -774,8 +930,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Other Leg 50% Business Target:{' '}
+                    STANDARD GROUP 50% BUSINESS TARGET:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -793,8 +950,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Number Of Direct Referral Target:{' '}
+                    PREMIUM GROUP DIRECT REFERRAL:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -802,8 +960,8 @@ const LifetimeRankingReward = props => {
                         fontSize: 14,
                       }}>
                       {lifetime_ranking_rewards &&
-                      lifetime_ranking_rewards.number_of_direct_referral_target4
-                        ? lifetime_ranking_rewards.number_of_direct_referral_target4
+                      lifetime_ranking_rewards.direct_referrral_count_premium4
+                        ? lifetime_ranking_rewards.direct_referrral_count_premium4
                         : ''}
                     </Text>
                   </Text>
@@ -812,8 +970,29 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Strong Leg Business:{' '}
+                    STANDARD GROUP DIRECT REFERRAL:{' '}
+                    <Text
+                      style={{
+                        color: Colors.fontColor1,
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 14,
+                      }}>
+                      {lifetime_ranking_rewards &&
+                      lifetime_ranking_rewards.direct_referrral_count_standard4
+                        ? lifetime_ranking_rewards.direct_referrral_count_standard4
+                        : ''}
+                    </Text>
+                  </Text>
+                  <Text
+                    style={{
+                      color: Colors.icons,
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: 14,
+                      textTransform: 'capitalize',
+                    }}>
+                    PREMIUM GROUP BUSINESS:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -831,8 +1010,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Other Leg Business:{' '}
+                    STANDARD GROUP BUSINESS:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -909,7 +1089,7 @@ const LifetimeRankingReward = props => {
                     fontFamily: 'Poppins-Medium',
                     fontSize: 14,
                   }}>
-                  Direct Referals:{' '}
+                  Permium Group Direct Referal Target:{' '}
                   <Text
                     style={{
                       color: Colors.fontColor1,
@@ -917,8 +1097,8 @@ const LifetimeRankingReward = props => {
                       fontSize: 14,
                     }}>
                     {lifetime_ranking_rewards &&
-                    lifetime_ranking_rewards.direct_referrral_count5
-                      ? lifetime_ranking_rewards.direct_referrral_count5
+                    lifetime_ranking_rewards.number_of_direct_referral_target_premium5
+                      ? lifetime_ranking_rewards.number_of_direct_referral_target_premium5
                       : '0'}
                   </Text>
                 </Text>
@@ -951,8 +1131,29 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Strong Leg 50% Business Target:{' '}
+                    STANDARD GROUP DIRECT REFERRAL TARGET:{' '}
+                    <Text
+                      style={{
+                        color: Colors.fontColor1,
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 14,
+                      }}>
+                      {lifetime_ranking_rewards &&
+                      lifetime_ranking_rewards.number_of_direct_referral_target_standard5
+                        ? lifetime_ranking_rewards.number_of_direct_referral_target_standard5
+                        : ''}
+                    </Text>
+                  </Text>
+                  <Text
+                    style={{
+                      color: Colors.icons,
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: 14,
+                      textTransform: 'capitalize',
+                    }}>
+                    PREMIUM GROUP 50% BUSINESS TARGET:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -970,8 +1171,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Other Leg 50% Business Target:{' '}
+                    STANDARD GROUP 50% BUSINESS TARGET:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -989,8 +1191,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Number Of Direct Referral Target:{' '}
+                    PREMIUM GROUP DIRECT REFERRAL:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -998,8 +1201,8 @@ const LifetimeRankingReward = props => {
                         fontSize: 14,
                       }}>
                       {lifetime_ranking_rewards &&
-                      lifetime_ranking_rewards.number_of_direct_referral_target5
-                        ? lifetime_ranking_rewards.number_of_direct_referral_target5
+                      lifetime_ranking_rewards.direct_referrral_count_premium5
+                        ? lifetime_ranking_rewards.direct_referrral_count_premium5
                         : ''}
                     </Text>
                   </Text>
@@ -1008,8 +1211,29 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Strong Leg Business:{' '}
+                    STANDARD GROUP DIRECT REFERRAL:{' '}
+                    <Text
+                      style={{
+                        color: Colors.fontColor1,
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 14,
+                      }}>
+                      {lifetime_ranking_rewards &&
+                      lifetime_ranking_rewards.direct_referrral_count_standard5
+                        ? lifetime_ranking_rewards.direct_referrral_count_standard5
+                        : ''}
+                    </Text>
+                  </Text>
+                  <Text
+                    style={{
+                      color: Colors.icons,
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: 14,
+                      textTransform: 'capitalize',
+                    }}>
+                    PREMIUM GROUP BUSINESS:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -1027,8 +1251,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Other Leg Business:{' '}
+                    STANDARD GROUP BUSINESS:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -1105,7 +1330,7 @@ const LifetimeRankingReward = props => {
                     fontFamily: 'Poppins-Medium',
                     fontSize: 14,
                   }}>
-                  Direct Referals:{' '}
+                  Permium Group Direct Referal Target:{' '}
                   <Text
                     style={{
                       color: Colors.fontColor1,
@@ -1113,8 +1338,8 @@ const LifetimeRankingReward = props => {
                       fontSize: 14,
                     }}>
                     {lifetime_ranking_rewards &&
-                    lifetime_ranking_rewards.direct_referrral_count6
-                      ? lifetime_ranking_rewards.direct_referrral_count6
+                    lifetime_ranking_rewards.number_of_direct_referral_target_premium6
+                      ? lifetime_ranking_rewards.number_of_direct_referral_target_premium6
                       : '0'}
                   </Text>
                 </Text>
@@ -1147,8 +1372,29 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Strong Leg 50% Business Target:{' '}
+                    STANDARD GROUP DIRECT REFERRAL TARGET:{' '}
+                    <Text
+                      style={{
+                        color: Colors.fontColor1,
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 14,
+                      }}>
+                      {lifetime_ranking_rewards &&
+                      lifetime_ranking_rewards.number_of_direct_referral_target_standard6
+                        ? lifetime_ranking_rewards.number_of_direct_referral_target_standard6
+                        : ''}
+                    </Text>
+                  </Text>
+                  <Text
+                    style={{
+                      color: Colors.icons,
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: 14,
+                      textTransform: 'capitalize',
+                    }}>
+                    PREMIUM GROUP 50% BUSINESS TARGET:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -1166,8 +1412,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Other Leg 50% Business Target:{' '}
+                    STANDARD GROUP 50% BUSINESS TARGET:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -1185,8 +1432,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Number Of Direct Referral Target:{' '}
+                    PREMIUM GROUP DIRECT REFERRAL:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -1194,8 +1442,8 @@ const LifetimeRankingReward = props => {
                         fontSize: 14,
                       }}>
                       {lifetime_ranking_rewards &&
-                      lifetime_ranking_rewards.number_of_direct_referral_target6
-                        ? lifetime_ranking_rewards.number_of_direct_referral_target6
+                      lifetime_ranking_rewards.direct_referrral_count_premium6
+                        ? lifetime_ranking_rewards.direct_referrral_count_premium6
                         : ''}
                     </Text>
                   </Text>
@@ -1204,8 +1452,29 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Strong Leg Business:{' '}
+                    STANDARD GROUP DIRECT REFERRAL:{' '}
+                    <Text
+                      style={{
+                        color: Colors.fontColor1,
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 14,
+                      }}>
+                      {lifetime_ranking_rewards &&
+                      lifetime_ranking_rewards.direct_referrral_count_standard6
+                        ? lifetime_ranking_rewards.direct_referrral_count_standard6
+                        : ''}
+                    </Text>
+                  </Text>
+                  <Text
+                    style={{
+                      color: Colors.icons,
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: 14,
+                      textTransform: 'capitalize',
+                    }}>
+                    PREMIUM GROUP BUSINESS:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -1223,8 +1492,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Other Leg Business:{' '}
+                    STANDARD GROUP BUSINESS:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -1301,7 +1571,7 @@ const LifetimeRankingReward = props => {
                     fontFamily: 'Poppins-Medium',
                     fontSize: 14,
                   }}>
-                  Direct Referals:{' '}
+                  Permium Group Direct Referal Target:{' '}
                   <Text
                     style={{
                       color: Colors.fontColor1,
@@ -1309,8 +1579,8 @@ const LifetimeRankingReward = props => {
                       fontSize: 14,
                     }}>
                     {lifetime_ranking_rewards &&
-                    lifetime_ranking_rewards.direct_referrral_count7
-                      ? lifetime_ranking_rewards.direct_referrral_count7
+                    lifetime_ranking_rewards.number_of_direct_referral_target_premium7
+                      ? lifetime_ranking_rewards.number_of_direct_referral_target_premium7
                       : '0'}
                   </Text>
                 </Text>
@@ -1343,8 +1613,29 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Strong Leg 50% Business Target:{' '}
+                    STANDARD GROUP DIRECT REFERRAL TARGET:{' '}
+                    <Text
+                      style={{
+                        color: Colors.fontColor1,
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 14,
+                      }}>
+                      {lifetime_ranking_rewards &&
+                      lifetime_ranking_rewards.number_of_direct_referral_target_standard7
+                        ? lifetime_ranking_rewards.number_of_direct_referral_target_standard7
+                        : ''}
+                    </Text>
+                  </Text>
+                  <Text
+                    style={{
+                      color: Colors.icons,
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: 14,
+                      textTransform: 'capitalize',
+                    }}>
+                    PREMIUM GROUP 50% BUSINESS TARGET:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -1362,8 +1653,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Other Leg 50% Business Target:{' '}
+                    STANDARD GROUP 50% BUSINESS TARGET:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -1381,8 +1673,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Number Of Direct Referral Target:{' '}
+                    PREMIUM GROUP DIRECT REFERRAL:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -1390,8 +1683,8 @@ const LifetimeRankingReward = props => {
                         fontSize: 14,
                       }}>
                       {lifetime_ranking_rewards &&
-                      lifetime_ranking_rewards.number_of_direct_referral_target7
-                        ? lifetime_ranking_rewards.number_of_direct_referral_target7
+                      lifetime_ranking_rewards.direct_referrral_count_premium7
+                        ? lifetime_ranking_rewards.direct_referrral_count_premium7
                         : ''}
                     </Text>
                   </Text>
@@ -1400,8 +1693,29 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Strong Leg Business:{' '}
+                    STANDARD GROUP DIRECT REFERRAL:{' '}
+                    <Text
+                      style={{
+                        color: Colors.fontColor1,
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 14,
+                      }}>
+                      {lifetime_ranking_rewards &&
+                      lifetime_ranking_rewards.direct_referrral_count_standard7
+                        ? lifetime_ranking_rewards.direct_referrral_count_standard7
+                        : ''}
+                    </Text>
+                  </Text>
+                  <Text
+                    style={{
+                      color: Colors.icons,
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: 14,
+                      textTransform: 'capitalize',
+                    }}>
+                    PREMIUM GROUP BUSINESS:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -1419,8 +1733,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Other Leg Business:{' '}
+                    STANDARD GROUP BUSINESS:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -1497,7 +1812,7 @@ const LifetimeRankingReward = props => {
                     fontFamily: 'Poppins-Medium',
                     fontSize: 14,
                   }}>
-                  Direct Referals:{' '}
+                  Permium Group Direct Referal Target:{' '}
                   <Text
                     style={{
                       color: Colors.fontColor1,
@@ -1505,8 +1820,8 @@ const LifetimeRankingReward = props => {
                       fontSize: 14,
                     }}>
                     {lifetime_ranking_rewards &&
-                    lifetime_ranking_rewards.direct_referrral_count8
-                      ? lifetime_ranking_rewards.direct_referrral_count8
+                    lifetime_ranking_rewards.number_of_direct_referral_target_premium8
+                      ? lifetime_ranking_rewards.number_of_direct_referral_target_premium8
                       : '0'}
                   </Text>
                 </Text>
@@ -1539,8 +1854,29 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Strong Leg 50% Business Target:{' '}
+                    STANDARD GROUP DIRECT REFERRAL TARGET:{' '}
+                    <Text
+                      style={{
+                        color: Colors.fontColor1,
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 14,
+                      }}>
+                      {lifetime_ranking_rewards &&
+                      lifetime_ranking_rewards.number_of_direct_referral_target_standard8
+                        ? lifetime_ranking_rewards.number_of_direct_referral_target_standard8
+                        : ''}
+                    </Text>
+                  </Text>
+                  <Text
+                    style={{
+                      color: Colors.icons,
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: 14,
+                      textTransform: 'capitalize',
+                    }}>
+                    PREMIUM GROUP 50% BUSINESS TARGET:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -1558,8 +1894,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Other Leg 50% Business Target:{' '}
+                    STANDARD GROUP 50% BUSINESS TARGET:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -1577,8 +1914,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Number Of Direct Referral Target:{' '}
+                    PREMIUM GROUP DIRECT REFERRAL:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -1586,8 +1924,8 @@ const LifetimeRankingReward = props => {
                         fontSize: 14,
                       }}>
                       {lifetime_ranking_rewards &&
-                      lifetime_ranking_rewards.number_of_direct_referral_target8
-                        ? lifetime_ranking_rewards.number_of_direct_referral_target8
+                      lifetime_ranking_rewards.direct_referrral_count_premium8
+                        ? lifetime_ranking_rewards.direct_referrral_count_premium8
                         : ''}
                     </Text>
                   </Text>
@@ -1596,8 +1934,29 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Strong Leg Business:{' '}
+                    STANDARD GROUP DIRECT REFERRAL:{' '}
+                    <Text
+                      style={{
+                        color: Colors.fontColor1,
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 14,
+                      }}>
+                      {lifetime_ranking_rewards &&
+                      lifetime_ranking_rewards.direct_referrral_count_standard8
+                        ? lifetime_ranking_rewards.direct_referrral_count_standard8
+                        : ''}
+                    </Text>
+                  </Text>
+                  <Text
+                    style={{
+                      color: Colors.icons,
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: 14,
+                      textTransform: 'capitalize',
+                    }}>
+                    PREMIUM GROUP BUSINESS:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -1615,8 +1974,9 @@ const LifetimeRankingReward = props => {
                       color: Colors.icons,
                       fontFamily: 'Poppins-Medium',
                       fontSize: 14,
+                      textTransform: 'capitalize',
                     }}>
-                    Other Leg Business:{' '}
+                    STANDARD GROUP BUSINESS:{' '}
                     <Text
                       style={{
                         color: Colors.fontColor1,
@@ -1632,6 +1992,7 @@ const LifetimeRankingReward = props => {
                 </View>
               ) : null}
             </View>
+            {/* 8 */}
           </View>
         </View>
       </ImageBackground>

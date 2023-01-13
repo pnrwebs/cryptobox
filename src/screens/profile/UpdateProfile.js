@@ -36,6 +36,7 @@ import BreadcrumbBlock from '../../components/BreadcrumbBlock';
 import DropDownPicker from 'react-native-dropdown-picker';
 import Toast from 'react-native-simple-toast';
 import {Countries as cntryLst} from '../../config/Countries';
+import ValidateOTPModal from '../../components/ValidateOTPModal';
 const UpdateProfile = props => {
   const {
     loading,
@@ -80,6 +81,8 @@ const UpdateProfile = props => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState(cntryLst);
+  const [isEditable, setIsEditable] = useState(false);
+  const [modalStatus, setModalStatus] = useState(false);
   const handleSubmit = () => {
     if (
       firstname != '' &&
@@ -130,6 +133,16 @@ const UpdateProfile = props => {
       Toast.show(status_message, Toast.LONG);
     }
   }, [status_success, status_message]);
+
+  const handleUSDTValidation = () => {
+    // setIsEditable(true);
+    setModalStatus(!modalStatus);
+  };
+
+  const handlePopupCancel = () => {
+    handleUSDTValidation();
+  };
+
   return loading ? (
     <LoaderIndicator />
   ) : (
@@ -318,13 +331,29 @@ const UpdateProfile = props => {
                 <Text style={Styles.errorText}>{walletPasswordError}</Text>
               ) : null}
             </View>
-
-            <Pressable onPress={() => handleSubmit()} style={Styles.ctaButton}>
-              <Text style={Styles.ctaButtonText}>Submit</Text>
-            </Pressable>
+            {isEditable ? (
+              <Pressable
+                onPress={() => handleSubmit()}
+                style={Styles.ctaButton}>
+                <Text style={Styles.ctaButtonText}>Submit</Text>
+              </Pressable>
+            ) : (
+              <Pressable
+                onPress={() => setModalStatus(!modalStatus)}
+                style={Styles.ctaButton}>
+                <Text style={Styles.ctaButtonText}>Validate to Edit</Text>
+              </Pressable>
+            )}
           </View>
         </View>
       </ImageBackground>
+      <ValidateOTPModal
+        modalStatus={modalStatus}
+        handleUSDTValidation={handleUSDTValidation}
+        handleCancel={handlePopupCancel}
+        screenName={null}
+        setIsEditable={setIsEditable}
+      />
     </ScrollView>
   );
 };

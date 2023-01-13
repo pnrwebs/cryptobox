@@ -16,6 +16,7 @@ import {
   ImageBackground,
   Pressable,
   ScrollView,
+  Platform,
 } from 'react-native';
 import {
   widthPercentageToDP as wp,
@@ -26,6 +27,7 @@ import {
   initSignUP,
   setInitialStateNullAuth,
   getCountryList,
+  getSponsorName,
 } from '../../store/actions/Auth';
 import LoaderIndicator from '../../components/LoaderIndicator';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -45,8 +47,8 @@ const Register = props => {
     status_message,
     set_initialStateNull,
     user_data,
-    get_CountryList,
-    countryList_resp,
+    sponsorName_resp,
+    get_SponsorName,
   } = props;
 
   const [sponsor, setSponsor] = useState('');
@@ -58,6 +60,8 @@ const Register = props => {
   const [loginpass, setLoginPass] = useState('');
   const [walletpass, setWalletPass] = useState('');
   const [country, setCountry] = useState('');
+
+  const [sponsorName, setSponsorName] = useState(null);
 
   const [sponsorError, setSponsorError] = useState('');
   const [usernameError, setUsernameError] = useState('');
@@ -74,18 +78,18 @@ const Register = props => {
   const [items, setItems] = useState(cntryLst);
 
   const handleSignup = () => {
-    console.log(
-      'hello',
-      sponsor,
-      username,
-      firstname,
-      lastname,
-      email,
-      phone,
-      loginpass,
-      walletpass,
-      country,
-    );
+    // console.log(
+    //   'hello',
+    //   sponsor,
+    //   username,
+    //   firstname,
+    //   lastname,
+    //   email,
+    //   phone,
+    //   loginpass,
+    //   walletpass,
+    //   country,
+    // );
     if (
       sponsor != '' &&
       username != '' &&
@@ -138,14 +142,46 @@ const Register = props => {
   };
 
   useEffect(() => {
-    if (status_success === true) {
+    console.log('use effect');
+    if (status_success === true && user_data !== null && user_data !== '') {
+      console.log('if condition');
       set_initialStateNull();
       props.navigation.navigate('RegistrationSuccessfull', {user: user_data});
+    } else if (
+      status_success === true &&
+      sponsorName_resp !== '' &&
+      sponsorName_resp !== null
+    ) {
+      console.log('else if condition1');
+      set_initialStateNull();
+      setSponsorName('Your sponsor is ' + sponsorName_resp.sponsor_fullname);
     } else if (status_success === false) {
+      console.log('else if condition2');
       set_initialStateNull();
       Toast.show(status_message, Toast.LONG);
+    } else {
+      console.log('else');
     }
-  }, [status_success, status_message]);
+  }, [status_success, status_message, sponsorName_resp, user_data]);
+
+  // useEffect(() => {
+  //   console.log('sponsorName_resp', sponsorName_resp);
+  //   if (
+  //     status_success === true &&
+  //     sponsorName_resp !== '' &&
+  //     sponsorName_resp !== null
+  //   ) {
+  //     console.log('if condition');
+  //     set_initialStateNull();
+  //     setSponsorName('Your sponsor is ' + sponsorName_resp.sponsor_fullname);
+  //   } else if (status_success === false) {
+  //     set_initialStateNull();
+  //     console.log('showing success message', status_message);
+  //     setSponsorName(status_message);
+  //   } else {
+  //     console.log('else condi');
+  //   }
+  // }, [status_success, status_message, sponsorName_resp]);
 
   return loading ? (
     <LoaderIndicator />
@@ -170,9 +206,15 @@ const Register = props => {
                 placeholderTextColor={Colors.inputPlaceholder}
                 onChangeText={value => setSponsor(value)}
                 value={sponsor}
+                // onBlur={() => get_SponsorName(sponsor)}
               />
               {sponsorError ? (
                 <Text style={Styles.errorText}>{sponsorError}</Text>
+              ) : null}
+              {sponsorName ? (
+                <Text style={{...Styles.errorText, color: 'green'}}>
+                  {sponsorName}
+                </Text>
               ) : null}
               <TextInput
                 placeholder="User Name*"
@@ -259,8 +301,10 @@ const Register = props => {
               <DropDownPicker
                 placeholder="Select Country"
                 placeholderStyle={{
-                  color: 'white',
-                  fontWeight: 'bold',
+                  color: '#C8C0A3',
+                  // fontWeight: 'bold',
+                  fontSize: 18,
+                  fontFamily: 'Poppins-medium',
                 }}
                 dropDownContainerStyle={{
                   backgroundColor: Colors.primaryBlue,
@@ -292,7 +336,7 @@ const Register = props => {
                 onSelectItem={item => setCountry(item.value)}
                 style={Styles.inputBox}
                 searchable={true}
-                searchPlaceholderTextColor="white"
+                searchPlaceholderTextColor="#C8C0A3"
                 searchPlaceholder="Type to search"
                 searchTextInputProps={{
                   ...Styles.inputBox,
@@ -319,6 +363,7 @@ const Register = props => {
                     color: '#F2D097',
                     fontSize: hp('2%'),
                     marginRight: 6,
+                    marginLeft: Platform.OS === 'ios' ? 10 : 0,
                   }}>
                   I agree to the terms and conditions.
                 </Text>
@@ -370,6 +415,7 @@ const styles = StyleSheet.create({
   },
 });
 const mapDispatchToProps = dispatch => ({
+  get_SponsorName: sponsor => dispatch(getSponsorName(sponsor)),
   get_CountryList: () => dispatch(getCountryList()),
   set_initialStateNull: () => dispatch(setInitialStateNullAuth()),
   process_signup: (
@@ -407,6 +453,7 @@ const mapStateToProps = state => {
     status_success: state.auth.success,
     status_message: state.auth.message,
     user_data: state.auth.signupdata,
+    sponsorName_resp: state.auth.sponsor_name,
   };
 };
 

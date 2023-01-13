@@ -142,6 +142,7 @@ const ManagementPerformanceIncome = props => {
             }}>
             {mgmt_per_inc_rep && mgmt_per_inc_rep.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 40}}
                 data={mgmt_per_inc_rep ? mgmt_per_inc_rep : []}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

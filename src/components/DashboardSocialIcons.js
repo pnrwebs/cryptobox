@@ -6,6 +6,7 @@ import {
   Dimensions,
   Pressable,
   Linking,
+  Platform,
 } from 'react-native';
 import Colors from '../config/Colors';
 import {
@@ -80,9 +81,9 @@ const styles = StyleSheet.create({
     shadowColor: '#FFF',
     shadowOffset: {
       width: 0,
-      height: 5,
+      height: Platform.OS === 'ios' ? 1 : 5,
     },
-    shadowOpacity: 5,
+    shadowOpacity: Platform.OS === 'ios' ? 0.2 : 5,
     shadowRadius: 2.22,
     elevation: 4,
   },

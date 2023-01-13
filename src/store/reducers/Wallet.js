@@ -18,6 +18,7 @@ const initialState = {
   withdrawalRequestMdtxresp: null,
   withdrawalRequestUsdtresp: null,
   withdrawalTransWalletresp: null,
+  withdrawalRequestCryptoExchresp: null,
   investmentWB: null,
   incomeWB: null,
   open_status: null,
@@ -181,6 +182,21 @@ const reducer = (state = initialState, action) => {
         message: payload.data.message,
         withdrawalRequestMdtxresp: payload.data.data,
       });
+    case actionTypes.WITHDRAWAL_REQUEST_CRYPTOBOX_EXCHANGE:
+      return {
+        ...state,
+        loading: true,
+        status: null,
+      };
+    case actionTypes.WITHDRAWAL_REQUEST_CRYPTOBOX_EXCHANGE_STATUS:
+      return updateState(state, {
+        status: payload.status,
+        loading: false,
+        success: payload.data.success,
+        message: payload.data.message,
+        withdrawalRequestCryptoExchresp: payload.data.data,
+      });
+
     case actionTypes.WITHDRAWAL_INVEST_COMPOUNDING:
       return {
         ...state,

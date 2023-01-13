@@ -140,6 +140,7 @@ const ROIIncome = props => {
             }}>
             {roi_inc_rep && roi_inc_rep.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 40}}
                 data={roi_inc_rep ? roi_inc_rep : []}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}

@@ -147,6 +147,7 @@ const BusinessFlushReport = props => {
             }}>
             {business_flush_rept && business_flush_rept.length > 0 ? (
               <FlatList
+                contentContainerStyle={{paddingBottom: 40}}
                 data={business_flush_rept ? business_flush_rept : []}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
