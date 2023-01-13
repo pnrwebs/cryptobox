@@ -95,6 +95,10 @@ function* rootSaga() {
     wallet.withdrawalRequestMdtxSaga,
   );
   yield takeLatest(
+    actions.WITHDRAWAL_REQUEST_CRYPTOBOX_EXCHANGE,
+    wallet.withdrawalRequestCryptoboxExchangeSaga,
+  );
+  yield takeLatest(
     actions.WITHDRAWAL_INVEST_COMPOUNDING,
     wallet.withdrawalInvestCompoundingSaga,
   );
@@ -155,6 +159,10 @@ function* rootSaga() {
     actions.GET_CRYPTOBOX_REWARD_LIST,
     rewards.getCryptoboxRewardsListSaga,
   );
+  yield takeLatest(
+    actions.GET_CRYPTOBOX_REGIONAL_REWARD_LIST,
+    rewards.getCryptoboxRegionalRewardsListSaga,
+  );
 
   yield takeLatest(actions.GET_ROI_ON_OFF, rewards.ROIOnOffSage);
 
@@ -190,6 +198,7 @@ function* rootSaga() {
   yield takeLatest(actions.SET_2FA_AUTH, profile.set2FAAuthSaga);
   yield takeLatest(actions.LOGIN_OTP_VERIFY, auth.loginOtpVerifySaga);
   yield takeLatest(actions.SEND_EMAIL_OTP, verifyotp.sendOtpOnEmail);
+  yield takeLatest(actions.SEND_TXN_PASS_CHANGE, profile.sendTxnPasswordChange);
   // yield takeLatest(actions.VERIFY_EMAIL_OTP, verifyotp.verifyOtpOnEmail);
 }
 export default rootSaga;

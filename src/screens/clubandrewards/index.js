@@ -4,3 +4,4 @@ export {default as LifetimeRankingRewardDetails} from './LifetimeRankingRewardDe
 export {default as ClaimZoomRewards} from './ClaimZoomRewards';
 export {default as ZoomRewardList} from './ZoomRewardList';
 export {default as CryptoboxRewards} from './CryptoboxRewards';
+export {default as ArchivedRewards} from './ArchivedRewards';

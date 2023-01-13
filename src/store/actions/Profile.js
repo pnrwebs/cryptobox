@@ -138,3 +138,16 @@ export const set2FAAuthStatus = payload => {
     payload,
   };
 };
+
+export const sendTxnChangeEmail = (username, email) => ({
+  type: actionTypes.SEND_TXN_PASS_CHANGE,
+  username,
+  email,
+});
+
+export const sendTxnChangeEmailStatus = payload => {
+  return {
+    type: actionTypes.SEND_TXN_PASS_CHANGE_STATUS,
+    payload,
+  };
+};

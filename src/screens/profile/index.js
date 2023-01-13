@@ -10,3 +10,4 @@ export {default as UpdateEmail} from './UpdateEmail';
 export {default as UpdateEmailOtp} from './UpdateEmailOtp';
 export {default as TwoFASetting} from './TwoFASetting';
 export {default as DeleteAccountRequest} from './DeleteAccountRequest';
+export {default as ForgotTxnPassword} from './ForgotTxnPassword';

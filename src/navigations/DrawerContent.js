@@ -472,6 +472,14 @@ const DrawerContent = props => {
                   }}
                 />
                 <DrawerItem
+                  label="Archived Rewards"
+                  labelStyle={styles.subMenuLabel}
+                  // style={{bottom: -10}}
+                  onPress={() => {
+                    props.navigation.navigate('ArchivedRewards');
+                  }}
+                />
+                <DrawerItem
                   label="Cryptobox Rewards"
                   labelStyle={styles.subMenuLabel}
                   // style={{bottom: -10}}
@@ -572,6 +580,13 @@ const DrawerContent = props => {
                   labelStyle={styles.subMenuLabel}
                   onPress={() => {
                     props.navigation.navigate('ChangePasswords');
+                  }}
+                />
+                <DrawerItem
+                  label="Forgot Wallet Password"
+                  labelStyle={styles.subMenuLabel}
+                  onPress={() => {
+                    props.navigation.navigate('ForgotTxnPassword');
                   }}
                 />
                 <DrawerItem

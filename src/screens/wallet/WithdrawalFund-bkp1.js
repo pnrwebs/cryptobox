@@ -150,7 +150,7 @@ const WithdrawalFund = props => {
                   width: wp('60%'),
                 }}>
                 <Text style={Styles.ctaButtonText}>
-                  Withdraw fund with MDTX
+                  Withdraw fund with Cryptobox exchange
                 </Text>
               </Pressable>
               <Pressable
@@ -191,7 +191,7 @@ const WithdrawalFund = props => {
                   textTransform: 'capitalize',
                 }}>
                 Your cryptobox account scheduled weekly withdrawal is every
-                Sunday.
+                Saturday.
               </Text>
             </View>
           )}

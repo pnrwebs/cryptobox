@@ -1,4 +1,4 @@
-export const API_KEY = 'T72398fhdqwdkhuiuidqw698092109h'; //Live key
+export const API_KEY = '54788fyfyifyfghytt569796767fgfuyyufyuf67678'; //Live key
 // export const API_KEY = 'bibbfue68992178vbiuduiqdwq87892398'; // Test Key
 
 export const username = '';

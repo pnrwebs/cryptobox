@@ -14,7 +14,7 @@ import {
   Platform,
 } from 'react-native';
 import Animated from 'react-native-reanimated';
-
+import AsyncStorage from '@react-native-community/async-storage';
 import Colors from '../config/Colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -31,7 +31,7 @@ const DashboardDrawer = createDrawerNavigator();
 
 // Screens
 import ImageSplashScreen from '../screens/ImageSplashScreen';
-
+// let isUserId = await AsyncStorage.getItem('user_id');
 import {
   Login,
   Register,
@@ -63,6 +63,7 @@ import {
   UpdateEmailOtp,
   TwoFASetting,
   DeleteAccountRequest,
+  ForgotTxnPassword,
 } from '../screens/profile';
 import {KnowledgeCenter, KnowledgeDetails} from '../screens/knowledgecenter';
 import {
@@ -71,6 +72,7 @@ import {
   LifetimeRankingRewardDetails,
   ClaimZoomRewards,
   ZoomRewardList,
+  ArchivedRewards,
   CryptoboxRewards,
 } from '../screens/clubandrewards';
 
@@ -117,7 +119,11 @@ import {
   TransferFundToInvestmentWallet,
   WithdrawInvestInCompounding,
   WithdrawalFundStatus,
+  WithdrawalRequestCryptoExchange,
+  WithdrawalFundUSDTStatus,
 } from '../screens/wallet';
+
+// let isUserId = await AsyncStorage.getItem('user_id');
 
 const HeaderLeft = () => {
   const navigation = useNavigation();
@@ -328,6 +334,20 @@ const HomeStackNav = props => {
         }}
       />
       <HomeStack.Screen
+        name="ForgotTxnPassword"
+        component={ForgotTxnPassword}
+        options={{
+          headerShown: true,
+          title: 'Forgot Wallet Password',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
+      <HomeStack.Screen
         name="UpdateEmail"
         component={UpdateEmail}
         options={{
@@ -468,11 +488,25 @@ const HomeStackNav = props => {
         }}
       />
       <HomeStack.Screen
+        name="ArchivedRewards"
+        component={ArchivedRewards}
+        options={{
+          headerShown: true,
+          title: 'Archived Rewards',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
+      <HomeStack.Screen
         name="CryptoboxRewards"
         component={CryptoboxRewards}
         options={{
           headerShown: true,
-          title: 'Cryptobox Rewards',
+          title: 'Cryptobox Regional Rewards',
           showIcon: true,
           headerStyle: styles.headers,
           headerTintColor: Colors.appHeaderTitleOther,
@@ -903,6 +937,20 @@ const HomeStackNav = props => {
         }}
       />
       <HomeStack.Screen
+        name="WithdrawalFundUSDTStatus"
+        component={WithdrawalFundUSDTStatus}
+        options={{
+          headerShown: true,
+          title: 'Withdrawal USDT Status',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
+      <HomeStack.Screen
         name="WithdrawalRequestUSDT"
         component={WithdrawalRequestUSDT}
         options={{
@@ -922,6 +970,20 @@ const HomeStackNav = props => {
         options={{
           headerShown: true,
           title: 'Withdrawal Request MDTX',
+          showIcon: true,
+          headerStyle: styles.headers,
+          headerTintColor: Colors.appHeaderTitleOther,
+          headerTitleAlign: 'center',
+          // headerLeft: ({}) => <HeaderLeft />,
+          // headerRight: ({}) => <HeaderRight />,
+        }}
+      />
+      <HomeStack.Screen
+        name="WithdrawalRequestCryptoExchange"
+        component={WithdrawalRequestCryptoExchange}
+        options={{
+          headerShown: true,
+          title: 'Transfer to Cryptobox Exchange',
           showIcon: true,
           headerStyle: styles.headers,
           headerTintColor: Colors.appHeaderTitleOther,

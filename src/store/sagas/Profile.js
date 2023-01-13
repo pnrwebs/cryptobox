@@ -230,3 +230,27 @@ export function* set2FAAuthSaga(action) {
     yield put(actions.set2FAAuthStatus(error.message));
   }
 }
+
+export function* sendTxnPasswordChange(action) {
+  const {username, email} = action;
+  const body = {
+    username: username,
+    email: email,
+    action: 'Forgotwalletpasswordwithusername',
+    key: API_KEY,
+  };
+  console.log('request forgot transction pass bodybody', body);
+  try {
+    const data = yield API.post('/', body);
+    console.log('forgot txn pass response data', data);
+    if (data.status === 200) {
+      yield put(actions.sendTxnChangeEmailStatus(data));
+    } else {
+      console.log('txn', body);
+      yield put(actions.sendTxnChangeEmailStatus(data.status));
+    }
+  } catch (error) {
+    console.log('txn', error.message);
+    yield put(actions.sendTxnChangeEmailStatus(error.message));
+  }
+}

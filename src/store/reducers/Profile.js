@@ -140,6 +140,19 @@ const reducer = (state = initialState, action) => {
         success: payload.data.success,
         message: payload.data.message,
       });
+    case actionTypes.SEND_TXN_PASS_CHANGE:
+      return {
+        ...state,
+        loading: true,
+        status: null,
+      };
+    case actionTypes.SEND_TXN_PASS_CHANGE_STATUS:
+      return updateState(state, {
+        status: payload.status,
+        loading: false,
+        success: payload.data.success,
+        message: payload.data.message,
+      });
     default:
       return state;
   }

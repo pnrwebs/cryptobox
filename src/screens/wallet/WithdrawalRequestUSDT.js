@@ -65,6 +65,9 @@ const WithdrawalRequestUSDT = props => {
     }
   };
   useEffect(() => {
+    props.navigation.navigate('WithdrawalFundUSDTStatus', {
+      showData: withdrawalRequestUsdt_resp,
+    });
     if (status_success === true) {
       set_initialStateNull();
       setUsdtAddress('');

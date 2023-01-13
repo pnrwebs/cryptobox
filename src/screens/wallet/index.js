@@ -14,3 +14,5 @@ export {default as WithdrawalRequestMDTX} from './WithdrawalRequestMDTX';
 export {default as WithdrawInvestInCompounding} from './WithdrawInvestInCompounding';
 export {default as TransferFundToInvestmentWallet} from './TransferFundToInvestmentWallet';
 export {default as WithdrawalFundStatus} from './WithdrawalFundStatus';
+export {default as WithdrawalRequestCryptoExchange} from './WithdrawalRequestCryptoExchange';
+export {default as WithdrawalFundUSDTStatus} from './WithdrawalFundUSDTStatus';

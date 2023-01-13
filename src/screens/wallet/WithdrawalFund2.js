@@ -82,7 +82,8 @@ const WithdrawalFund = props => {
                 textTransform: 'capitalize',
                 fontFamily: 'Poppins-SemiBold',
               }}>
-              Your cryptobox account scheduled weekly withdrawal is every Sunday
+              Your cryptobox account scheduled weekly withdrawal is every
+              Saturday
             </Text>
           </View>
         </View>
