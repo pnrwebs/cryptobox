@@ -14,27 +14,40 @@ import {
   Text,
   TextInput,
   ImageBackground,
-  Image,
-  Pressable,
+  useWindowDimensions,
 } from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import RenderHtml from 'react-native-render-html';
 import {POST_LOGIN_BG, DATE_FORMAT} from '../../config/Constants';
 import LoaderIndicator from '../../components/LoaderIndicator';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../../config/Colors';
 import Styles from '../../css/Styles';
 import {ScrollView} from 'react-native-gesture-handler';
 import BreadcrumbBlock from '../../components/BreadcrumbBlock';
 import LinearGradient from 'react-native-linear-gradient';
-import {Divider} from 'react-native-paper';
-import moment from 'moment';
 
 const KnowledgeDetails = props => {
+  const {width} = useWindowDimensions();
   const {loading} = props;
   const [knowledge, setKnowledge] = useState(props.route.params.knowledge);
+
+  const source = {
+    html: knowledge.detail_description,
+  };
+
+  const tagsStyles = {
+    body: {
+      whiteSpace: 'normal',
+      color: '#FFF',
+    },
+    a: {
+      color: '#0000EE',
+    },
+  };
+
   return loading ? (
     <LoaderIndicator />
   ) : (
@@ -78,9 +91,14 @@ const KnowledgeDetails = props => {
             <ScrollView>
               <View style={{marginTop: 30}}>
                 <View style={{paddingVertical: 20}}>
-                  <Text style={styles.textContent}>
+                  <RenderHtml
+                    contentWidth={width}
+                    source={source}
+                    tagsStyles={tagsStyles}
+                  />
+                  {/* <Text style={styles.textContent}>
                     {knowledge.detail_description}
-                  </Text>
+                  </Text> */}
                 </View>
               </View>
             </ScrollView>

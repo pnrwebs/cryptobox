@@ -14,12 +14,9 @@ import {
   ImageBackground,
   Pressable,
   FlatList,
-  Animated,
+  useWindowDimensions,
 } from 'react-native';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+import RenderHtml from 'react-native-render-html';
 import {connect} from 'react-redux';
 import {getKnowledgeCenterList} from '../../store/actions';
 import {POST_LOGIN_BG, DATE_FORMAT} from '../../config/Constants';
@@ -27,18 +24,29 @@ import {LoaderIndicator, NoDataList} from '../../components';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../../config/Colors';
 import Styles from '../../css/Styles';
-import {ScrollView} from 'react-native-gesture-handler';
 import BreadcrumbBlock from '../../components/BreadcrumbBlock';
-import moment from 'moment';
-import {currency, ucword} from '../../utils/UtilityFunctions';
 
 const KnowledgeCenter = props => {
+  const {width} = useWindowDimensions();
   const {loading, get_KnowledgeCenter, knowledge_center_list} = props;
   const [showMore, setShowMore] = useState(null);
   useEffect(() => {
     get_KnowledgeCenter();
   }, []);
   const Item = ({items, props}) => {
+    const source = {
+      html: items.detail_description.substring(0, 100),
+    };
+    const tagsStyles = {
+      body: {
+        whiteSpace: 'normal',
+        color: '#FFF',
+      },
+      a: {
+        color: '#0000EE',
+      },
+    };
+
     return (
       <View style={{...styles.listItem}}>
         <View style={{alignItems: 'center'}}>
@@ -59,14 +67,11 @@ const KnowledgeCenter = props => {
             justifyContent: 'space-between',
             marginTop: 5,
           }}>
-          <Text
-            style={{
-              color: Colors.fontColor1,
-              fontFamily: 'Poppins-Medium',
-              fontSize: 14,
-            }}>
-            {items.detail_description.substring(0, 100)}...
-          </Text>
+          <RenderHtml
+            contentWidth={width}
+            source={source}
+            tagsStyles={tagsStyles}
+          />
         </View>
 
         <Pressable
